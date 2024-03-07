@@ -490,7 +490,7 @@
         function customSignIn() {
           var auth2 = gapi.auth2.getAuthInstance();
           auth2
-            .signIn({ prompt: "consent" })
+            .signIn()
             .then(async function (googleUser) {
               var profile = googleUser.getBasicProfile();
               var idToken = googleUser.getAuthResponse().id_token;

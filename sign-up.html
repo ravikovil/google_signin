@@ -818,48 +818,6 @@
           }
           document.cookie = name + "=" + (value || "") + expires + "; path=/";
         }
-        // async  function handleCredentialResponse(response) {
-        //     // setCookie("access_token", response.credential, 1);
-        //    await signUpFromGoogle(response.credential);
-        //     window.location.href = "/log-in";
-        //   }
-        //   window.google.accounts.id.initialize({
-        //     client_id:
-        //       "203059382548-3kpu65hiculthir7rmfi9hr9nc3i5rn4.apps.googleusercontent.com",
-        //     ux_mode: "popup",
-        //     callback: handleCredentialResponse,
-        //   });
-
-        //   const createFakeGoogleWrapper = () => {
-        //     const googleLoginWrapper = document.createElement("div");
-        //     // Or you can simple hide it in CSS rule for custom-google-button
-        //     googleLoginWrapper.style.display = "none";
-        //     googleLoginWrapper.classList.add("custom-google-button");
-
-        //     document.body.appendChild(googleLoginWrapper);
-        //     window.google.accounts.id.renderButton(googleLoginWrapper, {
-        //       type: "icon",
-        //       width: "200",
-        //     });
-
-        //     const googleLoginWrapperButton =
-        //       googleLoginWrapper.querySelector("div[role=button]");
-
-        //     return {
-        //       click: () => {
-        //         googleLoginWrapperButton.click();
-        //       },
-        //     };
-        //   };
-
-        //   const googleButtonWrapper = createFakeGoogleWrapper();
-        //   document
-        //     .getElementById("google-signin-button")
-        //     .addEventListener("click", (e) => {
-        //       googleButtonWrapper.click();
-
-        //       console.log("clicked google icon");
-        //     });
 
         function customSignIn() {
           var auth2 = gapi.auth2.getAuthInstance();
@@ -885,8 +843,7 @@
         window.onload = function () {
           gapi.load("auth2", function () {
             var auth2 = gapi.auth2.init({
-              client_id:
-                "973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com",
+              client_id: '973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com',
               scope: "email",
               plugin_name: "pawpal",
             });
