@@ -40,7 +40,8 @@
       })(window, document);
     </script>
     <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=start" async defer></script>
+
     <link href="images/webclip.png" rel="apple-touch-icon" />
     <!--  Google Tag Manager  -->
     <script>
@@ -62,6 +63,8 @@
       async=""
       defer=""
     ></script>
+    <meta name="google-signin-client_id" content="973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com">
+
   </head>
   <body>
     <div
@@ -324,150 +327,214 @@
         }
       });
     </script>
-    <script>
-      function shareContent() {
-        var e = {
-          title: "Welcome to PawPal!",
-          text: "Check out PawPal, a unique app with a virtual dog for engaging conversation and support; I think you will enjoy it.",
-          url: "https://www.pawpal.ai/",
-        };
-        navigator.share
-          ? navigator
-              .share(e)
-              .then(() => console.log("Successful share"))
-              .catch((e) => console.log("Error sharing:", e))
-          : shareViaSMS(e.url);
+   <script>
+    function shareContent() {
+      // The URL and text you want to share
+      var shareData = {
+        title: "Welcome to PawPal!",
+        text: "Check out PawPal, a unique app with a virtual dog for engaging conversation and support; I think you will enjoy it.",
+        url: "https://www.pawpal.ai/", // Replace with the URL you want to share
+      };
+      // Check if the Web Share API is supported
+      if (navigator.share) {
+        // Use the Web Share API
+        navigator
+          .share(shareData)
+          .then(() => console.log("Successful share"))
+          .catch((error) => console.log("Error sharing:", error));
+      } else {
+        // Fallback to SMS if Web Share API is not supported
+        shareViaSMS(shareData.url);
       }
-      function shareViaSMS(e) {
-        var t = encodeURIComponent(e),
-          n = "sms:?&body=" + shareData.text + t;
-        window.location.href = n;
+    }
+    function shareViaSMS(url) {
+      // Encode the URL to ensure it's safe to include in the SMS body
+      var encodedURL = encodeURIComponent(url);
+      // Create the SMS link
+      var smsLink = "sms:?&body=" + shareData.text + encodedURL;
+      // Redirect to the SMS link
+      window.location.href = smsLink;
+    }
+    // Wait for the DOM to be fully loaded
+    document.addEventListener("DOMContentLoaded", function () {
+      function appendRedText(msg) {
+        // Get the form element
+        const form = document.querySelector("form");
+
+        // Create a span element
+        const span = document.createElement("span");
+        span.style.color = "red"; // Set text color to red
+        span.id = "errorSpan"; // Set an id for the span
+        span.textContent = msg;
+
+        // Get the second-to-last element in the form
+        const secondToLastElement = form.children[form.children.length - 4];
+
+        // Append the span element after the second-to-last element
+        form.insertBefore(span, secondToLastElement.nextSibling);
       }
-      document.addEventListener("DOMContentLoaded", function () {
-        function e(e, t, n) {
-          new Date();
-          const o = "expires=" + new Date(Date.now() + 1e3 * n).toUTCString();
-          document.cookie = e + "=" + t + ";" + o + ";path=/";
+
+      function removeRedText() {
+        // Get the span element by its id
+        const spanToRemove = document.getElementById("errorSpan");
+
+        // Remove the span element if it exists
+        if (spanToRemove) {
+          spanToRemove.parentNode.removeChild(spanToRemove);
         }
-        document
-          .querySelector(".w-users-userformbutton")
-          .addEventListener("click", (t) => {
-            t.preventDefault();
-            const n = document.getElementById("wf-log-in-email").value,
-              o = document.getElementById("wf-log-in-password").value,
-              a = new Headers();
-            a.append("Content-Type", "application/json");
-            const s = JSON.stringify({ username: n, password: o });
-            fetch("https://api.pawpal.ai/api/v1/user/login", {
-              method: "POST",
-              headers: a,
-              body: s,
-              redirect: "follow",
-            })
-              .then((e) => e.text())
-              .then((t) => {
-                console.log(t),
-                  !1 === JSON.parse(t).success
-                    ? (function (e) {
-                        const t = document.querySelector("form"),
-                          n = document.createElement("span");
-                        (n.style.color = "red"),
-                          (n.id = "errorSpan"),
-                          (n.textContent = e);
-                        const o = t.children[t.children.length - 4];
-                        t.insertBefore(n, o.nextSibling);
-                      })(JSON.parse(t).message)
-                    : (!(function () {
-                        const e = document.getElementById("errorSpan");
-                        e && e.parentNode.removeChild(e);
-                      })(),
-                      e(
-                        "access_token",
-                        JSON.parse(t).message?.AuthenticationResult.AccessToken,
-                        JSON.parse(t).message?.AuthenticationResult.ExpiresIn
-                      ),
-                      e(
-                        "userId",
-                        JSON.parse(t).userId,
-                        JSON.parse(t).message?.AuthenticationResult.ExpiresIn
-                      ),
-                      e(
-                        "id_token",
-                        JSON.parse(t).message?.AuthenticationResult.IdToken,
-                        JSON.parse(t).message?.AuthenticationResult.ExpiresIn
-                      ),
-                      e(
-                        "refresh_token",
-                        JSON.parse(t).message?.AuthenticationResult
-                          .RefreshToken,
-                        JSON.parse(t).message?.AuthenticationResult.ExpiresIn
-                      ),
-                      alert("Logged In successfully"),
-                      (window.location.href = "/"));
-              })
-              .catch((e) => console.log(e));
+      }
+
+      function setCookie(name, value, expiresInSeconds) {
+        const date = new Date();
+        const expirationDate = new Date(Date.now() + expiresInSeconds * 1000);
+        const expires = "expires=" + expirationDate.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      }
+
+      // Sign in
+
+      document
+        .querySelector(".w-users-userformbutton")
+        .addEventListener("click", (e) => {
+          e.preventDefault();
+          const email = document.getElementById("wf-log-in-email").value;
+          const password =
+            document.getElementById("wf-log-in-password").value;
+
+          const myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+
+          const raw = JSON.stringify({
+            username: email,
+            password: password,
           });
-        var t = document.getElementById("shareinvite");
-        function e(e, t, n) {
-          var o = "";
-          if (n) {
-            var a = new Date();
-            a.setTime(a.getTime() + 24 * n * 60 * 60 * 1e3),
-              (o = "; expires=" + a.toUTCString());
-          }
-          document.cookie = e + "=" + (t || "") + o + "; path=/";
-        }
-        t && t.addEventListener("click", shareContent),
-          window.google.accounts.id.initialize({
-            client_id:
-            "973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com",
-              // "203059382548-3kpu65hiculthir7rmfi9hr9nc3i5rn4.apps.googleusercontent.com",
-            ux_mode: "popup",
-            callback: async function (t) {
-              e("access_token", t.credential, 1),
-                await (async function (t) {
-                  const n = new Headers();
-                  n.append("Content-Type", "application/json");
-                  const o = {
-                    method: "POST",
-                    headers: n,
-                    body: JSON.stringify({ token: t }),
-                    redirect: "follow",
-                  };
-                  await fetch("https://api.pawpal.ai/api/v1/user/google", o)
-                    .then((e) => e.text())
-                    .then((t) => {
-                      e("userId", JSON.parse(t).userId, 1),
-                        (window.location.href = "/");
-                    })
-                    .catch((e) => console.error(e));
-                })(t.credential);
-            },
-          });
-        const n = (() => {
-          const e = document.createElement("div");
-          (e.style.display = "none"),
-            e.classList.add("custom-google-button"),
-            document.body.appendChild(e),
-            window.google.accounts.id.renderButton(e, {
-              type: "icon",
-              width: "200",
-            });
-          const t = e.querySelector("div[role=button]");
-          return {
-            click: () => {
-              t.click();
-            },
+
+          const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
           };
-        })();
-        document
-          .getElementById("google-signin-button")
-          .addEventListener("click", (e) => {
-            console.log("login clicked"),
-              n.click(),
-              console.log("clicked google icon");
-          });
+
+          fetch("http://localhost:8000/api/v1/user/login", requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+              console.log(result);
+              if (JSON.parse(result).success === false) {
+                appendRedText(JSON.parse(result).message);
+              } else {
+                removeRedText();
+                setCookie(
+                  "access_token",
+                  JSON.parse(result).message?.AuthenticationResult
+                    .AccessToken,
+                  JSON.parse(result).message?.AuthenticationResult.ExpiresIn
+                );
+                setCookie(
+                  "id_token",
+                  JSON.parse(result).message?.AuthenticationResult.IdToken,
+                  JSON.parse(result).message?.AuthenticationResult.ExpiresIn
+                );
+                setCookie(
+                  "refresh_token",
+                  JSON.parse(result).message?.AuthenticationResult
+                    .RefreshToken,
+                  JSON.parse(result).message?.AuthenticationResult.ExpiresIn
+                );
+                alert("Logged In successfully")
+                window.location.href = "/";
+              }
+            })
+            .catch((error) => console.log(error));
+        });
+
+      // Attach the shareContent function to the button's click event
+      var shareButton = document.getElementById("shareinvite");
+      if (shareButton) {
+        shareButton.addEventListener("click", shareContent);
+      }
+
+              // set cookies
+              function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+    async  function handleCredentialResponse(response) {
+        setCookie("access_token", response.credential, 1);
+        window.location.href = "/";
+      }
+      window.google.accounts.id.initialize({
+        client_id:
+          "203059382548-3kpu65hiculthir7rmfi9hr9nc3i5rn4.apps.googleusercontent.com",
+        ux_mode: "popup",
+        callback: handleCredentialResponse,
       });
-    </script>
+
+      const createFakeGoogleWrapper = () => {
+        const googleLoginWrapper = document.createElement("div");
+        // Or you can simple hide it in CSS rule for custom-google-button
+        googleLoginWrapper.style.display = "none";
+        googleLoginWrapper.classList.add("custom-google-button");
+
+        document.body.appendChild(googleLoginWrapper);
+        window.google.accounts.id.renderButton(googleLoginWrapper, {
+          type: "icon",
+          width: "200",
+        });
+
+        const googleLoginWrapperButton =
+          googleLoginWrapper.querySelector("div[role=button]");
+
+        return {
+          click: () => {
+            googleLoginWrapperButton.click();
+          },
+        };
+      };
+
+      const googleButtonWrapper = createFakeGoogleWrapper();
+      // document
+      //   .getElementById("google-signin-button")
+      //   .addEventListener("click", (e) => {
+      //     console.log("login clicked")
+      //     googleButtonWrapper.click();
+
+      //     console.log("clicked google icon");
+      //   });
+
+      function start() {
+        gapi.load('auth2', function() {
+            // Initialize the GoogleAuth object.
+            var auth2 = gapi.auth2.init({
+                client_id: '03059382548-3kpu65hiculthir7rmfi9hr9nc3i5rn4.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin'
+            });
+
+            // Attach click event listener to your custom button.
+            document
+          .getElementById("google-signin-button").addEventListener('click', function() {
+            console.log("clicked ")
+                // Sign in the user.
+                auth2.signIn().then(function(googleUser) {
+                    console.log('Signed in as ' + googleUser.getBasicProfile().getName());
+                    // You can handle the sign-in response here, e.g., send ID token to server.
+                }, function(error) {
+                    console.error('Sign-in error', error);
+                });
+            });
+        });
+    }
+
+    window.onload=function(){
+      start()
+    }
+
+    });
+  </script>
   </body>
 </html>
