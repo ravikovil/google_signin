@@ -64,6 +64,7 @@
       defer=""
     ></script>
     <meta name="google-signin-client_id" content="973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com">
+    <meta http-equiv="Content-Security-Policy" content="cross-origin-embedder-policy require-corp; cross-origin-opener-policy same-origin">
 
   </head>
   <body>
@@ -519,7 +520,7 @@
             // Attach click event listener to your custom button.
             document
           .getElementById("google-signin-button").addEventListener('click', function() {
-            console.log("clicked ")
+            alert("clicked ")
                 // Sign in the user.
                 auth2.signIn().then(function(googleUser) {
                     console.log('Signed in as ' + googleUser.getBasicProfile().getName());
@@ -537,5 +538,7 @@
 
     });
   </script>
+  <script src="https://apis.google.com/js/platform.js?onload=start" async defer></script>
+
   </body>
 </html>
