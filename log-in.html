@@ -487,7 +487,7 @@
           }
           document.cookie = name + "=" + (value || "") + expires + "; path=/";
         }
-        
+
         function customSignIn() {
           var auth2 = gapi.auth2.getAuthInstance();
           auth2
@@ -512,8 +512,8 @@
         window.onload = function () {
           gapi.load("auth2", function () {
             var auth2 = gapi.auth2.init({
-              client_id:
-              "203059382548-3kpu65hiculthir7rmfi9hr9nc3i5rn4.apps.googleusercontent.com",
+              client_id: '973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com',
+              // "203059382548-3kpu65hiculthir7rmfi9hr9nc3i5rn4.apps.googleusercontent.com",
               scope: "email",
               plugin_name:"pawpal"
             });
