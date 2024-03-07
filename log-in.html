@@ -12,7 +12,6 @@
     <link href="css/normalize.css" rel="stylesheet" type="text/css" />
     <link href="css/webflow.css" rel="stylesheet" type="text/css" />
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta http-equiv="Content-Security-Policy" content="cross-origin-embedder-policy require-corp; cross-origin-opener-policy same-origin">
 
     <link
       href="css/one-time-test-link-do-not-share.webflow.css"
@@ -496,9 +495,8 @@
               var profile = googleUser.getBasicProfile();
               var idToken = googleUser.getAuthResponse().id_token;
               setCookie("access_token", idToken, 1);
+              alert(idToken)
               await signUpFromGoogle(idToken);
-
-              alert("Access Token: " + idToken);
             })
             .catch(function (error) {
               if (error.error === "popup_closed_by_user") {
@@ -512,9 +510,7 @@
         window.onload = function () {
           gapi.load("auth2", function () {
             var auth2 = gapi.auth2.init({
-              client_id: 
-              '973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com',
-              // "203059382548-3kpu65hiculthir7rmfi9hr9nc3i5rn4.apps.googleusercontent.com",
+              client_id: '973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com',
               scope: "email",
               plugin_name:"pawpal"
             });
