@@ -834,7 +834,7 @@
                         var profile = googleUser.getBasicProfile();
                         var idToken = googleUser.getAuthResponse().id_token;
                         setCookie("access_token", idToken, 1);
-                        window.location.href = "/";
+                        window.location.href = "/google_signin";
 
                         // await signUpFromGoogle(idToken);
                     })
