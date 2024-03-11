@@ -579,216 +579,163 @@
         }
       });
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // generate username
-        function callApiGenerateUserName() {
-          const myHeaders = new Headers();
-          myHeaders.append("Content-Type", "application/json");
-          let userInputName = document.querySelector(
-            ".w-layout-cell input"
-          ).value;
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // generate username
+      function callApiGenerateUserName() {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        let userInputName = document.querySelector(
+          ".w-layout-cell input"
+        ).value;
 
-          const raw = JSON.stringify({
-            userName: userInputName,
-          });
-
-          const requestOptions = {
-            method: "POST",
-            headers: myHeaders,
-            body: raw,
-            redirect: "follow",
-          };
-
-          fetch(
-            "https://api.pawpal.ai/api/v1/user/generate-username",
-            requestOptions
-          )
-            .then((response) => response.text())
-            .then((result) => {
-              const username_availSpan =
-                document.querySelector(".username_avail");
-              if (username_availSpan) {
-                username_availSpan.remove();
-              }
-              const username_errSpan = document.querySelector(".username_err");
-              if (username_errSpan) {
-                username_errSpan.remove();
-              }
-              if (
-                userInputName &&
-                userInputName !== JSON.parse(result).username
-              ) {
-                const errorSpan = document.createElement("span");
-                errorSpan.classList.add("username_err");
-                errorSpan.style.cssText = "color:red;";
-                errorSpan.textContent = userInputName + " unavailable!";
-                document
-                  .querySelector(".w-layout-cell input")
-                  .insertAdjacentElement("afterend", errorSpan);
-              }
-
-              const availSpan = document.createElement("span");
-              availSpan.classList.add("username_avail");
-              availSpan.style.cssText = "color:green;";
-              availSpan.textContent =
-                JSON.parse(result).username + " available";
-              document
-                .querySelector(".w-layout-cell input")
-                .insertAdjacentElement("afterend", availSpan);
-
-              document.querySelector(".w-layout-cell input").value =
-                JSON.parse(result).username;
-            })
-            .catch((error) => console.error(error));
-        }
-        const getGenBtn = document.getElementById("GEN-USER");
-        getGenBtn.addEventListener("click", () => {
-          callApiGenerateUserName();
+        const raw = JSON.stringify({
+          userName: userInputName,
         });
 
-        function appendRedText(msg) {
+        const requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+
+        fetch(
+          "https://api.pawpal.ai/api/v1/user/generate-username",
+          requestOptions
+        )
+          .then((response) => response.text())
+          .then((result) => {
+            const username_availSpan =
+              document.querySelector(".username_avail");
+            if (username_availSpan) {
+              username_availSpan.remove();
+            }
+            const username_errSpan = document.querySelector(".username_err");
+            if (username_errSpan) {
+              username_errSpan.remove();
+            }
+            if (
+              userInputName &&
+              userInputName !== JSON.parse(result).username
+            ) {
+              const errorSpan = document.createElement("span");
+              errorSpan.classList.add("username_err");
+              errorSpan.style.cssText = "color:red;";
+              errorSpan.textContent = userInputName + " unavailable!";
+              document
+                .querySelector(".w-layout-cell input")
+                .insertAdjacentElement("afterend", errorSpan);
+            }
+
+            const availSpan = document.createElement("span");
+            availSpan.classList.add("username_avail");
+            availSpan.style.cssText = "color:green;";
+            availSpan.textContent =
+              JSON.parse(result).username + " available";
+            document
+              .querySelector(".w-layout-cell input")
+              .insertAdjacentElement("afterend", availSpan);
+
+            document.querySelector(".w-layout-cell input").value =
+              JSON.parse(result).username;
+          })
+          .catch((error) => console.error(error));
+      }
+      const getGenBtn = document.getElementById("GEN-USER");
+      getGenBtn.addEventListener("click", () => {
+        callApiGenerateUserName();
+      });
+
+      function appendRedText(msg) {
+        const form = document.getElementById("wf-form-signup-form");
+        const span = document.createElement("span");
+        span.style.color = "red";
+        span.id = "errorSpan";
+        span.textContent = msg;
+        const secondToLastElement = form.children[form.children.length - 2];
+        form.insertBefore(span, secondToLastElement.nextSibling);
+      }
+      // Function to remove the appended span element
+      function removeRedText() {
+        const spanToRemove = document.getElementById("errorSpan");
+        if (spanToRemove) {
+          spanToRemove.parentNode.removeChild(spanToRemove);
+        }
+      }
+
+      function isValidPassword(password) {
+        const passwordRegex =
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+
+        return passwordRegex.test(password);
+      }
+
+      // sign up
+      document
+        .getElementById("signup-button")
+        .addEventListener("click", (e) => {
+          e.preventDefault();
+          const button = document.getElementById("signup-button");
+          button.value = "Submitting...";
+          button.disabled = true;
           const form = document.getElementById("wf-form-signup-form");
-          const span = document.createElement("span");
-          span.style.color = "red";
-          span.id = "errorSpan";
-          span.textContent = msg;
-          const secondToLastElement = form.children[form.children.length - 2];
-          form.insertBefore(span, secondToLastElement.nextSibling);
-        }
-        // Function to remove the appended span element
-        function removeRedText() {
-          const spanToRemove = document.getElementById("errorSpan");
-          if (spanToRemove) {
-            spanToRemove.parentNode.removeChild(spanToRemove);
+          const inputElements = form.querySelectorAll("input");
+          const email = inputElements[1].value;
+          const username = inputElements[0].value;
+          const elementsPassword =
+            document.querySelectorAll("#signup-password");
+          console.log(elementsPassword, "elementsPassword");
+          const password = elementsPassword[0].value;
+          const confirm_password = elementsPassword[0].value;
+          if (!username) {
+            removeRedText();
+            appendRedText("Please enter username!");
+            button.value = "Submit";
+            button.disabled = false;
+            return;
           }
-        }
+          if (!email) {
+            removeRedText();
+            appendRedText("Please enter email!");
+            button.value = "Submit";
+            button.disabled = false;
+            return;
+          }
+          if (!password && !confirm_password) {
+            removeRedText();
+            appendRedText("Please enter password!");
+            button.value = "Submit";
+            button.disabled = false;
+            return;
+          }
+          if (password !== confirm_password) {
+            removeRedText();
+            appendRedText("Password not match!");
+            button.value = "Submit";
+            button.disabled = false;
+            return;
+          }
 
-        function isValidPassword(password) {
-          const passwordRegex =
-            /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+          if (!isValidPassword(password)) {
+            removeRedText();
+            appendRedText(
+              "Password must contain at least 8 characters, including at least one digit, one lowercase letter, one uppercase letter, and one special character."
+            );
+            button.value = "Submit";
+            button.disabled = false;
+            return;
+          }
 
-          return passwordRegex.test(password);
-        }
-
-        // sign up
-        document
-          .getElementById("signup-button")
-          .addEventListener("click", (e) => {
-            e.preventDefault();
-            const button = document.getElementById("signup-button");
-            button.value = "Submitting...";
-            button.disabled = true;
-            const form = document.getElementById("wf-form-signup-form");
-            const inputElements = form.querySelectorAll("input");
-            const email = inputElements[1].value;
-            const username = inputElements[0].value;
-            const elementsPassword =
-              document.querySelectorAll("#signup-password");
-            console.log(elementsPassword, "elementsPassword");
-            const password = elementsPassword[0].value;
-            const confirm_password = elementsPassword[0].value;
-            if (!username) {
-              removeRedText();
-              appendRedText("Please enter username!");
-              button.value = "Submit";
-              button.disabled = false;
-              return;
-            }
-            if (!email) {
-              removeRedText();
-              appendRedText("Please enter email!");
-              button.value = "Submit";
-              button.disabled = false;
-              return;
-            }
-            if (!password && !confirm_password) {
-              removeRedText();
-              appendRedText("Please enter password!");
-              button.value = "Submit";
-              button.disabled = false;
-              return;
-            }
-            if (password !== confirm_password) {
-              removeRedText();
-              appendRedText("Password not match!");
-              button.value = "Submit";
-              button.disabled = false;
-              return;
-            }
-
-            if (!isValidPassword(password)) {
-              removeRedText();
-              appendRedText(
-                "Password must contain at least 8 characters, including at least one digit, one lowercase letter, one uppercase letter, and one special character."
-              );
-              button.value = "Submit";
-              button.disabled = false;
-              return;
-            }
-
-            const myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-
-            const raw = JSON.stringify({
-              name: "roy",
-              username,
-              email,
-              password,
-            });
-
-            const requestOptions = {
-              method: "POST",
-              headers: myHeaders,
-              body: raw,
-              redirect: "follow",
-            };
-
-            fetch("https://api.pawpal.ai/api/v1/user", requestOptions)
-              .then((response) => response.text())
-              .then((result) => {
-                if (
-                  JSON.parse(result).success === false &&
-                  JSON.parse(result).message.includes("validation")
-                ) {
-                  button.value = "Submit";
-                  removeRedText();
-                  appendRedText("Please enter, all information is required!");
-                  button.disabled = false;
-                } else if (JSON.parse(result).success === false) {
-                  button.value = "Submit";
-                  removeRedText();
-                  appendRedText(JSON.parse(result).message);
-                  alert(JSON.parse(result).message);
-                  button.disabled = false;
-                }
-                if (JSON.parse(result).success === true) {
-                  button.value = "Submit";
-                  removeRedText();
-                  alert("User registered successfully");
-                  button.disabled = false;
-                  window.location.href =
-                    "/verify-your-email?username=" +
-                    username +
-                    "&password=" +
-                    password;
-                }
-              })
-              .catch((error) => {
-                button.value = "Submit";
-                button.disabled = false;
-                console.log(JSON.stringify(error));
-              });
-          });
-
-        // Google signup process
-
-        // sign up api
-        async function signUpFromGoogle(token) {
           const myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
 
-          const raw = JSON.stringify({ token: token });
+          const raw = JSON.stringify({
+            name: "roy",
+            username,
+            email,
+            password,
+          });
 
           const requestOptions = {
             method: "POST",
@@ -797,67 +744,109 @@
             redirect: "follow",
           };
 
-          await fetch(
-            "https://api.pawpal.ai/api/v1/user/google",
-            requestOptions
-          )
+          fetch("https://api.pawpal.ai/api/v1/user", requestOptions)
             .then((response) => response.text())
             .then((result) => {
-              setCookie("userId", JSON.parse(result).userId, 1);
-            })
-            .catch((error) => console.error(error));
-        }
-
-        // set cookies
-        function setCookie(name, value, days) {
-          var expires = "";
-          if (days) {
-            var date = new Date();
-            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-            expires = "; expires=" + date.toUTCString();
-          }
-          document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-
-        function customSignIn() {
-          var auth2 = gapi.auth2.getAuthInstance();
-          auth2
-            .signIn({ prompt: "consent" })
-            .then(async function (googleUser) {
-              var profile = googleUser.getBasicProfile();
-              var idToken = googleUser.getAuthResponse().id_token;
-              setCookie("access_token", idToken, 1);
-              alert(idToken)
-
-              await signUpFromGoogle(idToken);
-            })
-            .catch(function (error) {
-              if (error.error === "popup_closed_by_user") {
-                console.log("Sign-in popup was closed by the user.");
-              } else {
-                console.error(error);
+              if (
+                JSON.parse(result).success === false &&
+                JSON.parse(result).message.includes("validation")
+              ) {
+                button.value = "Submit";
+                removeRedText();
+                appendRedText("Please enter, all information is required!");
+                button.disabled = false;
+              } else if (JSON.parse(result).success === false) {
+                button.value = "Submit";
+                removeRedText();
+                appendRedText(JSON.parse(result).message);
+                alert(JSON.parse(result).message);
+                button.disabled = false;
               }
-            });
-        }
-
-        window.onload = function () {
-          gapi.load("auth2", function () {
-            var auth2 = gapi.auth2.init({
-              client_id: '973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com',
-              scope: "email",
-              plugin_name: "pawpal",
-            });
-            auth2.attachClickHandler(
-              "google-signin-button",
-              {},
-              customSignIn,
-              function (error) {
-                console.error(error);
+              if (JSON.parse(result).success === true) {
+                button.value = "Submit";
+                removeRedText();
+                alert("User registered successfully");
+                button.disabled = false;
+                window.location.href =
+                  "/verify-your-email?username=" +
+                  username +
+                  "&password=" +
+                  password;
               }
-            );
-          });
+            })
+            .catch((error) => {
+              button.value = "Submit";
+              button.disabled = false;
+              console.log(JSON.stringify(error));
+            });
+        });
+
+      // Google signup process
+
+      // sign up api
+      async function signUpFromGoogle(token) {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({ token: token });
+
+        const requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
         };
-      });
-    </script>
+
+        await fetch(
+          "https://api.pawpal.ai/api/v1/user/google",
+          requestOptions
+        )
+          .then((response) => response.text())
+          .then((result) => {
+            setCookie("userId", JSON.parse(result).userId, 1);
+            window.location.href='/'
+          })
+          .catch((error) => console.error(error));
+      }
+
+      // set cookies
+      function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+
+      window.onload = function () {
+        gapi.load("auth2", function () {
+            var auth2 = gapi.auth2.init({
+                client_id: '973379163079-ljuo4kmscrj7lcude03s5guboc382v7q.apps.googleusercontent.com',
+                scope: "email",
+                plugin_name: "pawpal"
+            });
+    
+            document.getElementById("google-signin-button").addEventListener("click", function () {
+                auth2.signIn()
+                    .then(async function (googleUser) {
+                        var profile = googleUser.getBasicProfile();
+                        var idToken = googleUser.getAuthResponse().id_token;
+                        setCookie("access_token", idToken, 1);
+                        await signUpFromGoogle(idToken);
+                    })
+                    .catch(function (error) {
+                        if (error.error === "popup_closed_by_user") {
+                            console.log("Sign-in popup was closed by the user.");
+                        } else {
+                            console.error(error);
+                        }
+                    });
+            });
+        });
+    };
+    });
+  </script>
   </body>
 </html>
