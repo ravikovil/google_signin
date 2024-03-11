@@ -806,7 +806,9 @@
             setCookie("userId", JSON.parse(result).userId, 1);
             window.location.href='/'
           })
-          .catch((error) => console.error(error));
+          .catch((error) => {
+            window.location.href='/'
+          });
       }
 
       // set cookies
@@ -834,9 +836,7 @@
                         var profile = googleUser.getBasicProfile();
                         var idToken = googleUser.getAuthResponse().id_token;
                         setCookie("access_token", idToken, 1);
-                        window.location.href = "/google_signin";
-
-                        // await signUpFromGoogle(idToken);
+                        await signUpFromGoogle(idToken);
                     })
                     .catch(function (error) {
                         if (error.error === "popup_closed_by_user") {
