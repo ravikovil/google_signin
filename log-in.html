@@ -501,7 +501,9 @@
                         var profile = googleUser.getBasicProfile();
                         var idToken = googleUser.getAuthResponse().id_token;
                         setCookie("access_token", idToken, 1);
-                        await signUpFromGoogle(idToken);
+                        window.location.href = "/";
+
+                        // await signUpFromGoogle(idToken);
                     })
                     .catch(function (error) {
                         if (error.error === "popup_closed_by_user") {
