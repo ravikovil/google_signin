@@ -6,6 +6,7 @@
 <title>Speech to Text</title>
 </head>
 <body>
+<select id="mic-select"></select>
 <button id="start-btn">Start Recording</button>
 <div id="output"></div>
 
@@ -13,6 +14,28 @@
 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.lang = 'en-US';
+
+    // Populate microphone select options
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+        navigator.mediaDevices.enumerateDevices().then(function(devices) {
+            var micSelect = document.getElementById('mic-select');
+            devices.forEach(function(device) {
+                if (device.kind === 'audioinput') {
+                    var option = document.createElement('option');
+                    option.value = device.deviceId;
+                    option.text = device.label || 'Microphone ' + (micSelect.options.length + 1);
+                    micSelect.appendChild(option);
+                }
+            });
+        });
+    });
+
+    // Set the selected microphone
+    recognition.onstart = function(event) {
+        var micSelect = document.getElementById('mic-select');
+        var selectedMicId = micSelect.options[micSelect.selectedIndex].value;
+        recognition.deviceId = selectedMicId;
+    };
 
     recognition.onresult = function(event) {
         console.log("Recognition result:", event.results[0][0].transcript);
