@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speech to Text</title>
+</head>
+<body>
+<button id="start-btn">Start Recording</button>
+<div id="output"></div>
+
+<script>
+if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+    var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+
+    recognition.onresult = function(event) {
+        console.log("Recognition result:", event.results[0][0].transcript);
+        document.getElementById('output').textContent = event.results[0][0].transcript;
+    };
+
+    document.getElementById('start-btn').addEventListener('click', function() {
+        recognition.start();
+    });
+} else {
+    document.getElementById('output').textContent = "Sorry, your browser doesn't support speech recognition.";
+}
+</script>
+</body>
+</html>
