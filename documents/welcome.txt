@@ -1,0 +1,163 @@
+      // typing effect
+      function typingEffect(bubble, message, timestamp) {
+        const cursorElement = document.createElement("span");
+        cursorElement.id = "typed";
+        cursorElement.style.cssText = "color:#525050;";
+        if (bubble) bubble.appendChild(cursorElement);
+        const typed = new Typed("#typed", {
+          strings: [message],
+          typeSpeed: 50,
+          stringsElement: null,
+          // loop:true,
+          showCursor: true, // Display cursor
+          cursorChar: "|",
+          onComplete: function (self) {
+            // bubble.appendChild(timestamp);
+          },
+        });
+      }
+      // logout logic
+      function clearAllCookies() {
+        return new Promise((resolve, reject) => {
+          var cookies = document.cookie.split(";");
+          for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie;
+            document.cookie =
+              name +
+              "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=" +
+              window.location.hostname;
+          }
+          resolve(); // Resolve the promise once all cookies are cleared
+        });
+      }
+      // get login details
+      function getCookie(name) {
+        const cookieValue = document.cookie.match(
+          "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+        );
+        return cookieValue ? cookieValue.pop() : "";
+      }
+      const signInOutBtn = document.querySelector("#authButton");
+      signInOutBtn.addEventListener("click", () => {
+        clearAllCookies().then(() => {
+          window.location.href = "/";
+        });
+      });
+      // Function to scroll to the bottom of the chat container
+      function scrollToLatestMessage() {
+        const chatContainer = document.querySelector(".chat-container");
+        chatContainer.scrollTo({
+          top: chatContainer.scrollHeight,
+          behavior: "smooth",
+        });
+      }
+      // Function to create a timestamp span
+      function createTimestamp() {
+        const timestamp = document.createElement("span");
+        const now = new Date();
+        const timeString =
+          now.getHours().toString().padStart(2, "0") +
+          ":" +
+          now.getMinutes().toString().padStart(2, "0");
+        timestamp.textContent = timeString;
+        timestamp.classList.add("timestamp5");
+        return timestamp;
+      }
+      // Function to display chat bubbles
+      function displayChatBubble(sender, message) {
+        const chatContainer = document.querySelector(".chat-container");
+        const bubble = document.createElement("div");
+        bubble.classList.add("chat-bubble5");
+        const timestamp = createTimestamp(); // Create a timestamp for all messages
+        if (sender === "user") {
+          bubble.style.backgroundColor = "#178fff";
+          bubble.style.cssText = "background-color:#178fff;";
+          bubble.classList.add("user");
+          bubble.textContent = message;
+          bubble.appendChild(timestamp); // Append the timestamp for user messages
+          chatContainer.appendChild(bubble);
+        } else {
+          const textPairs = [
+            {
+              question: `<span><h1><span style="font-weight: bold; width:100%; text-align:center;">PawPal,</span> How secure is my data with you?</h1></span>`,
+              answer: "Your data is protected by the Privacy Network!.",
+            },
+            {
+              question: `<h1><span style="font-weight: bold;">PawPal,</span> Can I be myself around you?
+</h1>`,
+              answer: "Of course! I'm your safe space to be authentically you!",
+            },
+            {
+              question: `<h1><span style="font-weight: bold;">PawPal,</span> What makes our bond so special?</h1>`,
+              answer:
+                "We're an unbreakable team, built on trust, privacy, and lifelong support!",
+            },
+          ];
+          let index = 0;
+          function changeText() {
+            const pair = textPairs[index];
+            bubble.innerHTML = pair.question;
+            setTimeout(() => {
+              typingEffect(bubble, pair.answer, timestamp);
+              setTimeout(() => {
+                index = (index + 1) % textPairs.length;
+                changeText();
+              }, 5700); // Change every 5 seconds
+            }, 700); // Initial question for 0.5 seconds
+          }
+          changeText();
+          const chatNowBtn = document.createElement("button");
+          chatNowBtn.textContent = "Talk To PawPal Now";
+          chatNowBtn.style.cssText =
+            "background:#6A994E; margin-top:10px; color:white;height: 60px;width: 300px;font-size: 25px;border-radius:10px;";
+            bubble.style.cssText =
+            "margin:unset;text-align:center;background:transparent;font-size: 30px;height: 225px;";
+          bubble.classList.add("bot");
+          chatContainer.appendChild(bubble);
+          chatContainer.appendChild(chatNowBtn);
+          chatNowBtn.addEventListener("click", () => {
+            window.open("https://www.pawpal.ai/beta/pick-your-pal", "_blank");
+          });
+        }
+      }
+      // Function to display example conversation
+      function displayExampleConversation() {
+        // Example user message
+        setTimeout(() => {
+          // Example bot message
+          displayChatBubble(
+            "bot",
+            "I can help you with a variety of tasks like creating images, making decisions, or just chatting!"
+          );
+        }, 1400); // Adjust this delay as needed
+      }
+      // Displaying the example conversation when the chat window loads
+      document.addEventListener('DOMContentLoaded', function() {
+        const style = document.createElement("style");
+        style.textContent=`
+            body {
+              background-image: linear-gradient(#2663c0, #031025) !important;
+            }
+             `
+        var body = document.querySelector('body');
+        console.log(body)
+        // body.style.backgroundImage="linear-gradient(#2663c0, #031025);"
+        document.head.appendChild(style);
+      })
+      window.onload = function () {
+        var firstUserId = getCookie("userId");
+        const signInOutBtn = document.querySelector("#authButton");
+        if (firstUserId) {
+          signInOutBtn.style.display = "none";
+        } else {
+          signInOutBtn.style.cssText = "position:fixed;top:35px;left:5px;";
+        }
+        document.querySelector(".chat-section.intro").style.cssText =
+          "overflow:hidden;display: flex;justify-content:center; align-items:center;height:75vh;";
+        displayChatBubble(
+          "bot",
+          "Hi there! I am your chatbot, ready to assist you"
+        );
+      };

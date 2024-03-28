@@ -1,5 +1,5 @@
-<!DOCTYPE html><!--  Last Published: Wed Mar 06 2024 13:48:53 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="65569e49721b43ee40dd4292" data-wf-site="651a1e741b97af0938ef7dd5" lang="en">
+<!DOCTYPE html><!--  Last Published: Thu Mar 28 2024 08:48:21 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="65f50a59894491fa11d3bed8" data-wf-site="651a1e741b97af0938ef7dd5" lang="en">
 <head>
   <meta charset="utf-8">
   <title>GPT X - Webflow Ecommerce website template</title>
@@ -19,18 +19,28 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <script type="text/javascript">WebFont.load({  google: {    families: ["DM Sans:regular,500,700"]  }});</script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","DM Sans:regular,500,700"]  }});</script>
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon"><!--  Google Tag Manager  -->
-  <script>
+  <!-- <script>
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WXXHB6BT');
+</script>  -->
+  <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&anonymizeIp=true';f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WXXHB6BT');
 </script>
   <!--  End Google Tag Manager  -->
+  <!--  google api library for google login  -->
+  <script src="https://apis.google.com/js/platform.js" async="" defer=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.8/typed.min.js"></script>
 </head>
 <body class="bg-accent-2">
   <div class="loading-page-wrapper">
@@ -51,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <a href="hide-hold/about.html" class="header-nav-link w-nav-link">About</a>
                 </li>
                 <li class="header-nav-list-item left">
-                  <a href="pricing.html" class="header-nav-link w-nav-link">Pricing</a>
+                  <a href="beta/pricing.html" class="header-nav-link w-nav-link">Pricing</a>
                 </li>
                 <li class="header-nav-list-item left">
                   <div data-hover="true" data-delay="0" data-w-id="fda0fe74-97f3-20d4-20ae-7afbcd449614" class="dropdown-wrapper w-dropdown">
@@ -87,10 +97,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                       <a href="blog-pages/blog-v1.html" class="menu-link">Blog V1</a>
                                     </li>
                                     <li class="menu-list-item">
-                                      <a href="pawpal-ai-v1/blog-v2.html" class="menu-link">Blog V2</a>
+                                      <a href="beta/blog-v2.html" class="menu-link">Blog V2</a>
                                     </li>
                                     <li class="menu-list-item">
-                                      <a href="blog-pages/blog-v3.html" class="menu-link">Blog V3</a>
+                                      <a href="beta/blog.html" class="menu-link">Blog V3</a>
                                     </li>
                                     <li class="menu-list-item last">
                                       <a href="https://gpttemplate.webflow.io/blog/label-your-images-and-train-your-model-using-machine-learning" class="menu-link">Blog posts</a>
@@ -103,10 +113,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                       <a href="https://gpttemplate.webflow.io/blog-post-categories/company" class="menu-link">Blog category</a>
                                     </li>
                                     <li class="menu-list-item">
-                                      <a href="features.html" class="menu-link">Features</a>
+                                      <a href="features-template.html" class="menu-link">Features</a>
                                     </li>
                                     <li class="menu-list-item">
-                                      <a href="pricing.html" class="menu-link">Pricing</a>
+                                      <a href="beta/pricing.html" class="menu-link">Pricing</a>
                                     </li>
                                     <li class="menu-list-item">
                                       <a href="https://gpttemplate.webflow.io/product/elite" class="menu-link">Pricing single</a>
@@ -118,7 +128,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                       <a href="pawpal-ai-v1/contact.html" class="menu-link">Contact V2</a>
                                     </li>
                                     <li class="menu-list-item">
-                                      <a href="contact-pages/contact-v3.html" class="menu-link">Contact V3</a>
+                                      <a href="beta/contact-us.html" class="menu-link">Contact V3</a>
                                     </li>
                                     <li class="menu-list-item">
                                       <a href="integrations.html" class="menu-link">Integrations</a>
@@ -169,13 +179,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                     <a href="pawpal-ai-v1/coming-soon.html" class="menu-link">Coming soon</a>
                                   </li>
                                   <li class="menu-list-item">
-                                    <a href="utility-pages/forgot-password.html" class="menu-link">Forgot password</a>
+                                    <a href="beta/forgot-password.html" class="menu-link">Forgot password</a>
                                   </li>
                                   <li class="menu-list-item">
                                     <a href="confirm-your-email.html" class="menu-link">Email confirmation</a>
                                   </li>
                                   <li class="menu-list-item">
-                                    <a href="utility-pages/terms-conditions.html" class="menu-link">Terms &amp; Conditions</a>
+                                    <a href="beta/terms-conditions.html" class="menu-link">Terms &amp; Conditions</a>
                                   </li>
                                   <li class="menu-list-item last">
                                     <a href="utility-pages/change-password.html" class="menu-link">Reset password</a>
@@ -294,7 +304,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <div class="w-commerce-commercecartemptystate flex-vertical">
                         <div aria-live="polite" aria-label="This cart is empty" class="heading-h5-size mg-bottom-16px">No items found.</div>
                         <div>
-                          <a href="pricing.html" class="btn-primary w-button">Go to pricing</a>
+                          <a href="beta/pricing.html" class="btn-primary w-button">Go to pricing</a>
                         </div>
                       </div>
                       <div aria-live="assertive" style="display:none" data-node-type="commerce-cart-error" class="w-commerce-commercecarterrorstate error-state">
@@ -349,7 +359,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a href="https://gpttemplate.webflow.io/404" class="image-home-link-wrapper horizontal w-inline-block"><img src="images/gpt-x-not-found-page-ai--machine-learning-webflow-template.png" alt="GPT X - Not Found Page - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 180px, (max-width: 767px) 220px, (max-width: 991px) 260px, 422px" srcset="images/gpt-x-not-found-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-not-found-page-ai--machine-learning-webflow-template.png 844w" class="image-home-link"></a>
             <a href="blog-pages/blog-v1.html" class="image-home-link-wrapper horizontal w-inline-block"><img src="images/gpt-x-blog-v1-page-ai--machine-learning-webflow-template.png" alt="GPT X - Blog V1 Page - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 180px, (max-width: 767px) 220px, (max-width: 991px) 260px, 422px" srcset="images/gpt-x-blog-v1-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-blog-v1-page-ai--machine-learning-webflow-template.png 844w" class="image-home-link"></a>
             <a href="careers.html" class="image-home-link-wrapper horizontal w-inline-block"><img src="images/gpt-x-careers-page-ai--machine-learning-webflow-template.png" alt="GPT X - Careers Page - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 180px, (max-width: 767px) 220px, (max-width: 991px) 260px, 422px" srcset="images/gpt-x-careers-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-careers-page-ai--machine-learning-webflow-template.png 844w" class="image-home-link"></a>
-            <a href="blog-pages/blog-v3.html" class="image-home-link-wrapper horizontal w-inline-block"><img src="images/gpt-x-blog-v3-page-ai--machine-learning-webflow-template.png" alt="GPT X - Blog V3 Page - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 180px, (max-width: 767px) 220px, (max-width: 991px) 260px, 422px" srcset="images/gpt-x-blog-v3-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-blog-v3-page-ai--machine-learning-webflow-template.png 844w" class="image-home-link"></a>
+            <a href="beta/blog.html" class="image-home-link-wrapper horizontal w-inline-block"><img src="images/gpt-x-blog-v3-page-ai--machine-learning-webflow-template.png" alt="GPT X - Blog V3 Page - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 180px, (max-width: 767px) 220px, (max-width: 991px) 260px, 422px" srcset="images/gpt-x-blog-v3-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-blog-v3-page-ai--machine-learning-webflow-template.png 844w" class="image-home-link"></a>
             <a href="hide-hold/home-v3.html" class="image-home-link-wrapper horizontal w-inline-block"><img src="images/gpt-x-home-v3-page-ai--machine-learning-webflow-template.png" alt="GPT X - Home V3 Page - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 180px, (max-width: 767px) 220px, (max-width: 991px) 260px, 422px" srcset="images/gpt-x-home-v3-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-home-v3-page-ai--machine-learning-webflow-template.png 844w" class="image-home-link"></a>
             <a href="contact-pages/contact-v1.html" class="image-home-link-wrapper horizontal w-inline-block"><img src="images/gpt-x-contact-v1-page-ai--machine-learning-webflow-template.png" alt="GPT X - Contact V1 Page - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 180px, (max-width: 767px) 220px, (max-width: 991px) 260px, 422px" srcset="images/gpt-x-contact-v1-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-contact-v1-page-ai--machine-learning-webflow-template.png 844w" class="image-home-link"></a>
           </div>
@@ -366,9 +376,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
           </div>
         </div>
-        <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf61d-40dd4292" data-w-id="ba136eb7-e103-deb0-412c-a897680bf61d" style="opacity:0" class="w-layout-layout what-s-included-stack wf-layout-layout">
-          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf61e-40dd4292" class="w-layout-cell">
-            <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf61f-40dd4292" class="card whats-included"><img src="images/gpt-x-90-pages-ai--machine-learning-webflow-template.png" alt="GPT X - 90 Pages - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1439px) 96vw, 1220px" srcset="images/gpt-x-90-pages-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-90-pages-ai--machine-learning-webflow-template.png 776w" class="card-sales-home-image">
+        <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf61d-11d3bed8" data-w-id="ba136eb7-e103-deb0-412c-a897680bf61d" style="opacity:0" class="w-layout-layout what-s-included-stack wf-layout-layout">
+          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf61e-11d3bed8" class="w-layout-cell">
+            <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf61f-11d3bed8" class="card whats-included"><img src="images/gpt-x-90-pages-ai--machine-learning-webflow-template.png" alt="GPT X - 90 Pages - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1439px) 96vw, 1220px" srcset="images/gpt-x-90-pages-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-90-pages-ai--machine-learning-webflow-template.png 776w" class="card-sales-home-image">
               <div class="card-sales-home-content-border">
                 <div class="card-sales-home-content">
                   <div class="heading-h3-size">90+ Pages</div>
@@ -376,8 +386,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </div>
-          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf626-40dd4292" class="w-layout-cell">
-            <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf627-40dd4292" class="card whats-included"><img src="images/gpt-x-60-sections-ai--machine-learning-webflow-template.png" alt="GPT X - 60 Sections - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1439px) 96vw, 1220px" srcset="images/gpt-x-60-sections-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-60-sections-ai--machine-learning-webflow-template.png 776w" class="card-sales-home-image">
+          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf626-11d3bed8" class="w-layout-cell">
+            <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf627-11d3bed8" class="card whats-included"><img src="images/gpt-x-60-sections-ai--machine-learning-webflow-template.png" alt="GPT X - 60 Sections - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1439px) 96vw, 1220px" srcset="images/gpt-x-60-sections-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-60-sections-ai--machine-learning-webflow-template.png 776w" class="card-sales-home-image">
               <div class="card-sales-home-content-border">
                 <div class="card-sales-home-content">
                   <div class="heading-h3-size">60+ Sections</div>
@@ -385,8 +395,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </div>
-          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf62e-40dd4292" class="w-layout-cell">
-            <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf62f-40dd4292" class="card whats-included"><img src="images/gpt-x-25-styles-and-symbols-ai--machine-learning-webflow-template.png" alt="GPT X - 25 Styles And Symbols - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image">
+          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf62e-11d3bed8" class="w-layout-cell">
+            <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf62f-11d3bed8" class="card whats-included"><img src="images/gpt-x-25-styles-and-symbols-ai--machine-learning-webflow-template.png" alt="GPT X - 25 Styles And Symbols - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image">
               <div class="card-sales-home-content-border">
                 <div class="card-sales-home-content">
                   <div class="heading-h3-size">25+ Styles &amp; Symbols</div>
@@ -394,9 +404,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </div>
-          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf636-40dd4292" class="w-layout-cell">
+          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf636-11d3bed8" class="w-layout-cell">
             <div data-w-id="ba136eb7-e103-deb0-412c-a897680bf637" style="opacity:0" class="card included-card figma">
-              <div id="w-node-_747cda9a-9456-4e5c-a0ea-14314270bbf5-40dd4292" class="sales-home-large-content-border">
+              <div id="w-node-_747cda9a-9456-4e5c-a0ea-14314270bbf5-11d3bed8" class="sales-home-large-content-border">
                 <div class="sales-home-large-content">
                   <div><img src="images/figma-request-file-brix-templates.svg" alt="Figma Logo - GPT X Webflow Template" class="mg-bottom-24px">
                     <div class="display-4 mg-bottom-8px">Figma file included</div>
@@ -406,13 +416,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <div class="sales-home-large-content-img-wrapper"><img class="width-100 fit-cover" src="images/sales-home-large-content-bg-gpt-webflow-ecommerce-template.png" alt="" style="opacity:0" sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, (max-width: 1919px) 609px, 32vw" data-w-id="c75fa352-1c86-adbe-c430-5788a78e42f0" srcset="images/sales-home-large-content-bg-gpt-webflow-ecommerce-template-p-500.png 500w, images/sales-home-large-content-bg-gpt-webflow-ecommerce-template-p-800.png 800w, images/sales-home-large-content-bg-gpt-webflow-ecommerce-template.png 1124w"></div>
                 </div>
               </div>
-              <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf640-40dd4292" class="included-card-picture"><img src="images/gpt-x-figma-file-included-ai--machine-learning-webflow-template.png" alt="GPT X - Figma File Included AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 610px" srcset="images/gpt-x-figma-file-included-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-figma-file-included-ai--machine-learning-webflow-template-p-800.png 800w, images/gpt-x-figma-file-included-ai--machine-learning-webflow-template.png 1312w" class="fit-cover _w-h-100"></div>
+              <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf640-11d3bed8" class="included-card-picture"><img src="images/gpt-x-figma-file-included-ai--machine-learning-webflow-template.png" alt="GPT X - Figma File Included AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 610px" srcset="images/gpt-x-figma-file-included-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-figma-file-included-ai--machine-learning-webflow-template-p-800.png 800w, images/gpt-x-figma-file-included-ai--machine-learning-webflow-template.png 1312w" class="fit-cover _w-h-100"></div>
             </div>
           </div>
-          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf642-40dd4292" class="w-layout-cell">
+          <div id="w-node-ba136eb7-e103-deb0-412c-a897680bf642-11d3bed8" class="w-layout-cell">
             <div data-w-id="ba136eb7-e103-deb0-412c-a897680bf643" style="opacity:0" class="card included-card brix">
               <div class="included-card-picture"><img src="images/gpt-x-webflow-templates-ai--machine-learning-webflow-template.png" alt="GPT X - Webflow Templates - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 610px" srcset="images/gpt-x-webflow-templates-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-webflow-templates-ai--machine-learning-webflow-template-p-800.png 800w, images/gpt-x-webflow-templates-ai--machine-learning-webflow-template.png 1312w" class="fit-cover _w-h-100"></div>
-              <div id="w-node-a4a399fb-565d-e1cc-c9b1-b42e2a242279-40dd4292" class="sales-home-large-content-border right">
+              <div id="w-node-a4a399fb-565d-e1cc-c9b1-b42e2a242279-11d3bed8" class="sales-home-large-content-border right">
                 <div class="sales-home-large-content right">
                   <div><img src="images/gpt-x-brix-logo-ai--machine-learning-webflow-template.svg" alt="GPT X - Brix Templates Logo - AI &amp; Machine Learning Webflow Template" class="mg-bottom-24px">
                     <div class="display-4 mg-bottom-8px">Looking for more amazing Webflow Templates?</div>
@@ -441,7 +451,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </div>
         <div data-w-id="4a73fcf4-1410-3f79-100c-c46d15ebf973" style="opacity:0" class="w-layout-grid grid-3-columns">
-          <a id="w-node-a1af88db-b8ea-3ec8-084e-012bb076fb28-40dd4292" href="home-pages/home-v1.html" class="sales-home-page w-inline-block">
+          <a id="w-node-a1af88db-b8ea-3ec8-084e-012bb076fb28-11d3bed8" href="home-pages/home-v1.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-home-v1-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-home-v1-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-home-v1-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Home V1 Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -449,7 +459,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_933e32d7-ec8f-a095-e591-e4adb293a5b3-40dd4292" href="old-home-2.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_933e32d7-ec8f-a095-e591-e4adb293a5b3-11d3bed8" href="old-home-2.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-home-v2-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-home-v2-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-home-v2-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Home V2 Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -457,7 +467,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-c251e275-aa12-95f7-8413-625d9328f5e5-40dd4292" href="hide-hold/home-v3.html" class="sales-home-page w-inline-block">
+          <a id="w-node-c251e275-aa12-95f7-8413-625d9328f5e5-11d3bed8" href="hide-hold/home-v3.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-home-v3-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-home-v3-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-home-v3-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Home V3 Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -465,7 +475,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_8ceea4e6-e320-581c-d804-95625f08d4fe-40dd4292" href="hide-hold/about.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_8ceea4e6-e320-581c-d804-95625f08d4fe-11d3bed8" href="hide-hold/about.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-about-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-about-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-about-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - About Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -473,7 +483,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_0415c71d-d20f-9905-e292-e0e0a4308b1c-40dd4292" href="blog-pages/blog-v1.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_0415c71d-d20f-9905-e292-e0e0a4308b1c-11d3bed8" href="blog-pages/blog-v1.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-blog-v1-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-blog-v1-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-blog-v1-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Blog V1 Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -481,7 +491,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_1d6331ec-1a75-df08-0e28-53ed270f275d-40dd4292" href="pawpal-ai-v1/blog-v2.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_1d6331ec-1a75-df08-0e28-53ed270f275d-11d3bed8" href="beta/blog-v2.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-blog-v2-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-blog-v2-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-blog-v2-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Blog V2 Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -489,7 +499,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_73ee5d26-a24a-2b27-f3d9-e02b91b6e830-40dd4292" href="blog-pages/blog-v3.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_73ee5d26-a24a-2b27-f3d9-e02b91b6e830-11d3bed8" href="beta/blog.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-blog-v3-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-blog-v3-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-blog-v3-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Blog V3 Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -497,7 +507,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-a464c3a2-8f7c-8c3f-a433-35e5e3bbb7d9-40dd4292" href="https://gpttemplate.webflow.io/blog/label-your-images-and-train-your-model-using-machine-learning" class="sales-home-page w-inline-block">
+          <a id="w-node-a464c3a2-8f7c-8c3f-a433-35e5e3bbb7d9-11d3bed8" href="https://gpttemplate.webflow.io/blog/label-your-images-and-train-your-model-using-machine-learning" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-blog-post-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-blog-post-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-blog-post-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Blog Post Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image">
               <div class="badge-home">cms</div>
             </div>
@@ -507,7 +517,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_4e8a6d75-4b18-3c1a-9218-42aee7cc7624-40dd4292" href="https://gpttemplate.webflow.io/blog-post-categories/company" class="sales-home-page w-inline-block">
+          <a id="w-node-_4e8a6d75-4b18-3c1a-9218-42aee7cc7624-11d3bed8" href="https://gpttemplate.webflow.io/blog-post-categories/company" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-blog-category-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-blog-category-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-blog-category-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Blog Category Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image">
               <div class="badge-home">cms</div>
             </div>
@@ -517,7 +527,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_32545153-4e85-600d-4332-c03b36500d63-40dd4292" href="features.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_32545153-4e85-600d-4332-c03b36500d63-11d3bed8" href="features-template.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-features-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-features-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-features-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Features Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -525,7 +535,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-acdd9776-efab-9789-b9ca-bdb360a319e5-40dd4292" href="pricing.html" class="sales-home-page w-inline-block">
+          <a id="w-node-acdd9776-efab-9789-b9ca-bdb360a319e5-11d3bed8" href="beta/pricing.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-pricing-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-pricing-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-pricing-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Pricing Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -533,7 +543,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_666e3f41-0e80-9f0b-568c-5b3f98ff74b5-40dd4292" href="https://gpttemplate.webflow.io/product/elite" class="sales-home-page w-inline-block">
+          <a id="w-node-_666e3f41-0e80-9f0b-568c-5b3f98ff74b5-11d3bed8" href="https://gpttemplate.webflow.io/product/elite" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-pricing-single-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-pricing-single-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-pricing-single-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Pricing Single Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -541,7 +551,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_673afdd1-0679-7330-72cd-9de8cdc6583c-40dd4292" href="contact-pages/contact-v1.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_673afdd1-0679-7330-72cd-9de8cdc6583c-11d3bed8" href="contact-pages/contact-v1.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-contact-v1-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-contact-v1-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-contact-v1-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Contact V1 Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -549,7 +559,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_950338d3-b00d-7da3-06ed-fabff8de59c3-40dd4292" href="pawpal-ai-v1/contact.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_950338d3-b00d-7da3-06ed-fabff8de59c3-11d3bed8" href="pawpal-ai-v1/contact.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-contact-v2-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-contact-v2-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-contact-v2-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Contact V2 Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -557,7 +567,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_335bd890-7851-e4c4-7865-8d4ecc06bba2-40dd4292" href="contact-pages/contact-v3.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_335bd890-7851-e4c4-7865-8d4ecc06bba2-11d3bed8" href="beta/contact-us.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-contact-v3-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-contact-v3-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-contact-v3-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Contact V3 Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -565,7 +575,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_30d02774-b80c-27eb-42f2-81462b0cd0d5-40dd4292" href="integrations.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_30d02774-b80c-27eb-42f2-81462b0cd0d5-11d3bed8" href="integrations.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-integrations-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-integrations-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-integrations-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Integrations Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -573,7 +583,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_235cc730-02a3-e83f-36fe-88ee4f60ee6b-40dd4292" href="https://gpttemplate.webflow.io/integrations/facebook" class="sales-home-page w-inline-block">
+          <a id="w-node-_235cc730-02a3-e83f-36fe-88ee4f60ee6b-11d3bed8" href="https://gpttemplate.webflow.io/integrations/facebook" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-integration-single-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-integration-single-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-integration-single-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Integration Single Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image">
               <div class="badge-home">cms</div>
             </div>
@@ -583,7 +593,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_103f929c-d42d-f700-6426-f2892b310706-40dd4292" href="careers.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_103f929c-d42d-f700-6426-f2892b310706-11d3bed8" href="careers.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-careers-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-careers-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-careers-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Careers Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -591,7 +601,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_22fbfd70-ea78-d159-aff3-3ba553514020-40dd4292" href="https://gpttemplate.webflow.io/careers/ui-ux-and-product-designer" class="sales-home-page w-inline-block">
+          <a id="w-node-_22fbfd70-ea78-d159-aff3-3ba553514020-11d3bed8" href="https://gpttemplate.webflow.io/careers/ui-ux-and-product-designer" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-career-single-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-career-single-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-career-single-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Career Single Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image">
               <div class="badge-home">cms</div>
             </div>
@@ -601,7 +611,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_8d724151-dcca-05a5-a26d-84cacd730942-40dd4292" href="help-center-2.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_8d724151-dcca-05a5-a26d-84cacd730942-11d3bed8" href="help-center-2.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-help-center-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-help-center-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-help-center-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Help Center Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -609,7 +619,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_6d2835e6-3386-45dc-52fa-cd55cc427583-40dd4292" href="https://gpttemplate.webflow.io/help-center-categories/getting-started" class="sales-home-page w-inline-block">
+          <a id="w-node-_6d2835e6-3386-45dc-52fa-cd55cc427583-11d3bed8" href="https://gpttemplate.webflow.io/help-center-categories/getting-started" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-help-center-category-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-help-center-category-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-help-center-category-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Help Center Category Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image">
               <div class="badge-home">cms</div>
             </div>
@@ -619,7 +629,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-e941da9d-5965-5cd7-561d-5e59348f7e0c-40dd4292" href="https://gpttemplate.webflow.io/help-center-articles/how-to-create-a-free-gpt-x-account" class="sales-home-page w-inline-block">
+          <a id="w-node-e941da9d-5965-5cd7-561d-5e59348f7e0c-11d3bed8" href="https://gpttemplate.webflow.io/help-center-articles/how-to-create-a-free-gpt-x-account" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-help-center-single-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-help-center-single-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-help-center-single-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Help Center Single Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image">
               <div class="badge-home">cms</div>
             </div>
@@ -629,7 +639,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-e028ecf5-a3b4-90b2-c513-890864aa7152-40dd4292" href="utility-pages/terms-conditions.html" class="sales-home-page w-inline-block">
+          <a id="w-node-e028ecf5-a3b4-90b2-c513-890864aa7152-11d3bed8" href="beta/terms-conditions.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-terms--conditions-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-terms--conditions-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-terms--conditions-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Terms &amp; Conditions Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -637,7 +647,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_622f30c0-84b8-6c1e-e550-bfc5068508b1-40dd4292" href="landing-page.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_622f30c0-84b8-6c1e-e550-bfc5068508b1-11d3bed8" href="landing-page.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-landing-page-main-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-landing-page-main-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-landing-page-main-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Landing Page Main Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -662,7 +672,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </div>
         <div data-w-id="4bf4fff5-bb35-40c9-34ae-79ad4ed49eac" style="opacity:0" class="w-layout-grid grid-3-columns">
-          <a id="w-node-_0b86f39d-20b4-6af7-4f46-3645e451615f-40dd4292" href="utility-pages/sign-in-temp.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_0b86f39d-20b4-6af7-4f46-3645e451615f-11d3bed8" href="utility-pages/sign-in-temp.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-sign-in-utility-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-sign-in-utility-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-sign-in-utility-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Sign In Utility Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -670,7 +680,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_3775c068-1654-d28f-4b4a-a1d7a258ed99-40dd4292" href="utility-pages/sign-up-template.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_3775c068-1654-d28f-4b4a-a1d7a258ed99-11d3bed8" href="utility-pages/sign-up-template.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-sign-up-utility-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-sign-up-utility-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-sign-up-utility-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Sign Up Utility Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -678,7 +688,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-fe0d396d-eff8-160a-0e13-971672d892e2-40dd4292" href="utility-pages/forgot-password.html" class="sales-home-page w-inline-block">
+          <a id="w-node-fe0d396d-eff8-160a-0e13-971672d892e2-11d3bed8" href="beta/forgot-password.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-forgot-password-utility-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-forgot-password-utility-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-forgot-password-utility-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Forgot Password Utility Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -686,7 +696,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_703eb490-ae1f-8be8-137b-969bba8fad1e-40dd4292" href="utility-pages/change-password.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_703eb490-ae1f-8be8-137b-969bba8fad1e-11d3bed8" href="utility-pages/change-password.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-reset-password-utility-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-reset-password-utility-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-reset-password-utility-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Reset Password Utility Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -694,7 +704,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_7c202f50-54e3-f486-0fd5-2a53d6b57bcb-40dd4292" href="confirm-your-email.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_7c202f50-54e3-f486-0fd5-2a53d6b57bcb-11d3bed8" href="confirm-your-email.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-confirm-your-email-utility-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-confirm-your-email-utility-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-confirm-your-email-utility-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Confirm Your Email Utility Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -702,7 +712,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_077c568f-3f04-e171-14a7-2874f62207a5-40dd4292" href="pawpal-ai-v1/demo.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_077c568f-3f04-e171-14a7-2874f62207a5-11d3bed8" href="pawpal-ai-v1/demo.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-demo-utility-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-demo-utility-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-demo-utility-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Demo Utility Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -710,7 +720,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_42d26a65-c358-f67e-59da-8cdbf6f64e17-40dd4292" href="pawpal-ai-v1/coming-soon.html" class="sales-home-page w-inline-block">
+          <a id="w-node-_42d26a65-c358-f67e-59da-8cdbf6f64e17-11d3bed8" href="pawpal-ai-v1/coming-soon.html" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-coming-soon-utility-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-coming-soon-utility-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-coming-soon-utility-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Coming Soon Utility Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -718,7 +728,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_8fd7b0e6-6b9a-ae05-5b9f-dcd4790041c3-40dd4292" href="https://gpttemplate.webflow.io/404" class="sales-home-page w-inline-block">
+          <a id="w-node-_8fd7b0e6-6b9a-ae05-5b9f-dcd4790041c3-11d3bed8" href="https://gpttemplate.webflow.io/404" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-not-found-utility-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-not-found-utility-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-not-found-utility-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Not Found Utility Page - AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -726,7 +736,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </div>
           </a>
-          <a id="w-node-_7e8b5486-e9c7-6790-4993-ac6e54453822-40dd4292" href="https://gpttemplate.webflow.io/401" class="sales-home-page w-inline-block">
+          <a id="w-node-_7e8b5486-e9c7-6790-4993-ac6e54453822-11d3bed8" href="https://gpttemplate.webflow.io/401" class="sales-home-page w-inline-block">
             <div class="position-relative"><img src="images/gpt-x-password-protected-page-ai--machine-learning-webflow-template.png" srcset="images/gpt-x-password-protected-page-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-password-protected-page-ai--machine-learning-webflow-template.png 776w" width="322" sizes="(max-width: 479px) 92vw, (max-width: 767px) 94vw, (max-width: 991px) 46vw, (max-width: 1439px) 30vw, 388px" alt="GPT X - Password Protected Page AI &amp; Machine Learning Webflow Template" class="card-sales-home-image"></div>
             <div class="card-sales-home-content-border border-top-1px-neutral-300">
               <div class="card-sales-home-content">
@@ -752,23 +762,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </div>
         <div class="w-layout-grid grid-2-columns suprises-pages-right">
-          <div id="w-node-_39f1c957-e64f-03e8-7fd1-e917c40b1c60-40dd4292" data-w-id="39f1c957-e64f-03e8-7fd1-e917c40b1c60" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
+          <div id="w-node-_39f1c957-e64f-03e8-7fd1-e917c40b1c60-11d3bed8" data-w-id="39f1c957-e64f-03e8-7fd1-e917c40b1c60" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
             <h2>3 Headers and Footers</h2>
             <p class="color-neutral-200 mg-bottom-40px mg-bottom-24px-tablet">With a total of 3 different headers and footers, you can easily customize the GPT X Webflow Template to fit your company needs and requirements.</p>
             <a href="https://webflow.com/templates/html/gpt-x-technology-website-template" class="btn-primary w-button">Buy template</a>
           </div>
-          <div id="w-node-aee1fdbe-1387-4397-e993-d21c363dd8ba-40dd4292" data-w-id="aee1fdbe-1387-4397-e993-d21c363dd8ba" style="opacity:0" class="home-surprises-card"><img src="images/3-headers-and-footers-included-gtp-webflow-ecommerce-template.jpg" alt="GPT X - 3 Headers And Footers Included - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.2265625px" srcset="images/3-headers-and-footers-included-gtp-webflow-ecommerce-template-p-500.jpg 500w, images/3-headers-and-footers-included-gtp-webflow-ecommerce-template-p-800.jpg 800w, images/3-headers-and-footers-included-gtp-webflow-ecommerce-template-p-1080.jpg 1080w, images/3-headers-and-footers-included-gtp-webflow-ecommerce-template-p-1600.jpg 1600w, images/3-headers-and-footers-included-gtp-webflow-ecommerce-template.jpg 2576w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
+          <div id="w-node-aee1fdbe-1387-4397-e993-d21c363dd8ba-11d3bed8" data-w-id="aee1fdbe-1387-4397-e993-d21c363dd8ba" style="opacity:0" class="home-surprises-card"><img src="images/3-headers-and-footers-included-gtp-webflow-ecommerce-template.jpg" alt="GPT X - 3 Headers And Footers Included - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.2265625px" srcset="images/3-headers-and-footers-included-gtp-webflow-ecommerce-template-p-500.jpg 500w, images/3-headers-and-footers-included-gtp-webflow-ecommerce-template-p-800.jpg 800w, images/3-headers-and-footers-included-gtp-webflow-ecommerce-template-p-1080.jpg 1080w, images/3-headers-and-footers-included-gtp-webflow-ecommerce-template-p-1600.jpg 1600w, images/3-headers-and-footers-included-gtp-webflow-ecommerce-template.jpg 2576w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
         </div>
         <div class="w-layout-grid grid-2-columns suprises-pages-left">
-          <div id="w-node-a03e51d8-a0ed-40fd-367a-fbe9c62136e2-40dd4292" data-w-id="a03e51d8-a0ed-40fd-367a-fbe9c62136e2" style="opacity:0" class="home-surprises-card"><img src="images/3-notification-bars-included-gpt-webflow-ecommerce-template.jpg" alt="GPT X - 3 Notification Bars Included - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.21875px" srcset="images/3-notification-bars-included-gpt-webflow-ecommerce-template-p-500.jpg 500w, images/3-notification-bars-included-gpt-webflow-ecommerce-template-p-800.jpg 800w, images/3-notification-bars-included-gpt-webflow-ecommerce-template-p-1080.jpg 1080w, images/3-notification-bars-included-gpt-webflow-ecommerce-template-p-1600.jpg 1600w, images/3-notification-bars-included-gpt-webflow-ecommerce-template.jpg 2576w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
-          <div id="w-node-a03e51d8-a0ed-40fd-367a-fbe9c62136db-40dd4292" data-w-id="a03e51d8-a0ed-40fd-367a-fbe9c62136db" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
+          <div id="w-node-a03e51d8-a0ed-40fd-367a-fbe9c62136e2-11d3bed8" data-w-id="a03e51d8-a0ed-40fd-367a-fbe9c62136e2" style="opacity:0" class="home-surprises-card"><img src="images/3-notification-bars-included-gpt-webflow-ecommerce-template.jpg" alt="GPT X - 3 Notification Bars Included - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.21875px" srcset="images/3-notification-bars-included-gpt-webflow-ecommerce-template-p-500.jpg 500w, images/3-notification-bars-included-gpt-webflow-ecommerce-template-p-800.jpg 800w, images/3-notification-bars-included-gpt-webflow-ecommerce-template-p-1080.jpg 1080w, images/3-notification-bars-included-gpt-webflow-ecommerce-template-p-1600.jpg 1600w, images/3-notification-bars-included-gpt-webflow-ecommerce-template.jpg 2576w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
+          <div id="w-node-a03e51d8-a0ed-40fd-367a-fbe9c62136db-11d3bed8" data-w-id="a03e51d8-a0ed-40fd-367a-fbe9c62136db" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
             <h2>3 Notification Bars</h2>
             <p class="color-neutral-200 mg-bottom-40px mg-bottom-24px-tablet">If you are looking to get more sales, use one of our 3 notification bars included in the GPT X Webflow Template, and start promoting your products or services.</p>
             <a href="https://webflow.com/templates/html/gpt-x-technology-website-template" class="btn-primary w-button">Buy template</a>
           </div>
         </div>
         <div class="w-layout-grid grid-2-columns suprises-pages-right">
-          <div id="w-node-dc0973a7-e425-9f2a-6ca0-2cc0078e37a5-40dd4292" data-w-id="dc0973a7-e425-9f2a-6ca0-2cc0078e37a5" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
+          <div id="w-node-dc0973a7-e425-9f2a-6ca0-2cc0078e37a5-11d3bed8" data-w-id="dc0973a7-e425-9f2a-6ca0-2cc0078e37a5" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
             <h2>Custom Icon Set</h2>
             <p class="color-neutral-200 mg-bottom-40px mg-bottom-24px-tablet">The GPT X Webflow Template includes 3 sets of custom icons (rounded, square and filled), so you can easily use more icon fonts in your template.<br><br>No matter if you are looking to add another social media icon in the footer, or change the cart icon in the header, we got you covered.</p>
             <div class="buttons-row center---tablet">
@@ -776,37 +786,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <a href="https://brixtemplates.com/icon-fonts" class="btn-secondary w-button">View icon font</a>
             </div>
           </div>
-          <div id="w-node-dc0973a7-e425-9f2a-6ca0-2cc0078e37ac-40dd4292" data-w-id="dc0973a7-e425-9f2a-6ca0-2cc0078e37ac" style="opacity:0" class="home-surprises-card"><img src="images/gpt-x-custom-icon-set-ai--machine-learning-webflow-template.png" alt="GPT X - Custom Icon Set - AI &amp; Machine Learning Webflow Template " sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.2265625px" srcset="images/gpt-x-custom-icon-set-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-custom-icon-set-ai--machine-learning-webflow-template.png 1288w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
+          <div id="w-node-dc0973a7-e425-9f2a-6ca0-2cc0078e37ac-11d3bed8" data-w-id="dc0973a7-e425-9f2a-6ca0-2cc0078e37ac" style="opacity:0" class="home-surprises-card"><img src="images/gpt-x-custom-icon-set-ai--machine-learning-webflow-template.png" alt="GPT X - Custom Icon Set - AI &amp; Machine Learning Webflow Template " sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.2265625px" srcset="images/gpt-x-custom-icon-set-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-custom-icon-set-ai--machine-learning-webflow-template.png 1288w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
         </div>
         <div class="w-layout-grid grid-2-columns suprises-pages-left">
-          <div id="w-node-_6a94e09d-dc86-bbd2-d2f3-c35b05bbe257-40dd4292" data-w-id="6a94e09d-dc86-bbd2-d2f3-c35b05bbe257" style="opacity:0" class="home-surprises-card"><img src="images/social-media-assets-included-gpt-webflow-ecommerce-template.jpg" alt="GPT X - Social Media Assets Included - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.21875px" srcset="images/social-media-assets-included-gpt-webflow-ecommerce-template-p-500.jpg 500w, images/social-media-assets-included-gpt-webflow-ecommerce-template-p-800.jpg 800w, images/social-media-assets-included-gpt-webflow-ecommerce-template-p-1080.jpg 1080w, images/social-media-assets-included-gpt-webflow-ecommerce-template-p-1600.jpg 1600w, images/social-media-assets-included-gpt-webflow-ecommerce-template-p-2000.jpg 2000w, images/social-media-assets-included-gpt-webflow-ecommerce-template.jpg 2576w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
-          <div id="w-node-_6a94e09d-dc86-bbd2-d2f3-c35b05bbe259-40dd4292" data-w-id="6a94e09d-dc86-bbd2-d2f3-c35b05bbe259" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
+          <div id="w-node-_6a94e09d-dc86-bbd2-d2f3-c35b05bbe257-11d3bed8" data-w-id="6a94e09d-dc86-bbd2-d2f3-c35b05bbe257" style="opacity:0" class="home-surprises-card"><img src="images/social-media-assets-included-gpt-webflow-ecommerce-template.jpg" alt="GPT X - Social Media Assets Included - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.21875px" srcset="images/social-media-assets-included-gpt-webflow-ecommerce-template-p-500.jpg 500w, images/social-media-assets-included-gpt-webflow-ecommerce-template-p-800.jpg 800w, images/social-media-assets-included-gpt-webflow-ecommerce-template-p-1080.jpg 1080w, images/social-media-assets-included-gpt-webflow-ecommerce-template-p-1600.jpg 1600w, images/social-media-assets-included-gpt-webflow-ecommerce-template-p-2000.jpg 2000w, images/social-media-assets-included-gpt-webflow-ecommerce-template.jpg 2576w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
+          <div id="w-node-_6a94e09d-dc86-bbd2-d2f3-c35b05bbe259-11d3bed8" data-w-id="6a94e09d-dc86-bbd2-d2f3-c35b05bbe259" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
             <h2>Social Media Assets</h2>
             <p class="color-neutral-200 mg-bottom-40px mg-bottom-24px-tablet">Our GPT X Webflow Template Figma file includes a collection of social media covers that match with the Webflow Template design (for Facebook, Twitter and LinkedIn), so you can easily edit, customize, and use them for your own social media profiles.</p>
             <a href="https://webflow.com/templates/html/gpt-x-technology-website-template" class="btn-primary w-button">Buy template</a>
           </div>
         </div>
         <div class="w-layout-grid grid-2-columns suprises-pages-right last">
-          <div id="w-node-_7d4afe16-534c-7da9-a1f1-701c68b3f2c6-40dd4292" data-w-id="7d4afe16-534c-7da9-a1f1-701c68b3f2c6" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
+          <div id="w-node-_7d4afe16-534c-7da9-a1f1-701c68b3f2c6-11d3bed8" data-w-id="7d4afe16-534c-7da9-a1f1-701c68b3f2c6" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="text-center-tablet">
             <h2>Email Signature</h2>
             <p class="color-neutral-200 mg-bottom-40px mg-bottom-24px-tablet">Our GPT X Webflow Template Figma file includes 2 custom email signature templates that match with the Webflow template, and you can use them to impress your customers with an amazing email signature.</p>
             <a href="https://webflow.com/templates/html/gpt-x-technology-website-template" class="btn-primary w-button">Buy template</a>
           </div>
-          <div id="w-node-_7d4afe16-534c-7da9-a1f1-701c68b3f2d3-40dd4292" data-w-id="7d4afe16-534c-7da9-a1f1-701c68b3f2d3" style="opacity:0" class="home-surprises-card"><img src="images/email-signature-included-gpt-webflow-ecommerce-template.jpg" alt="GPT X - Email Signature Included - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.2265625px" srcset="images/email-signature-included-gpt-webflow-ecommerce-template-p-500.jpg 500w, images/email-signature-included-gpt-webflow-ecommerce-template-p-800.jpg 800w, images/email-signature-included-gpt-webflow-ecommerce-template-p-1080.jpg 1080w, images/email-signature-included-gpt-webflow-ecommerce-template-p-1600.jpg 1600w, images/email-signature-included-gpt-webflow-ecommerce-template.jpg 2576w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
+          <div id="w-node-_7d4afe16-534c-7da9-a1f1-701c68b3f2d3-11d3bed8" data-w-id="7d4afe16-534c-7da9-a1f1-701c68b3f2d3" style="opacity:0" class="home-surprises-card"><img src="images/email-signature-included-gpt-webflow-ecommerce-template.jpg" alt="GPT X - Email Signature Included - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 479px) 91vw, (max-width: 767px) 93vw, (max-width: 991px) 95vw, (max-width: 1439px) 48vw, 620.2265625px" srcset="images/email-signature-included-gpt-webflow-ecommerce-template-p-500.jpg 500w, images/email-signature-included-gpt-webflow-ecommerce-template-p-800.jpg 800w, images/email-signature-included-gpt-webflow-ecommerce-template-p-1080.jpg 1080w, images/email-signature-included-gpt-webflow-ecommerce-template-p-1600.jpg 1600w, images/email-signature-included-gpt-webflow-ecommerce-template.jpg 2576w" class="fit-cover _w-h-100 border-radius-24px---16px-mbl"></div>
         </div>
       </div>
     </div>
     <div class="section cta-home-pages">
       <div class="container-default w-container">
         <div data-w-id="9dbe1b1d-2b2d-9647-a9b7-4378c9a26d25" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="w-layout-grid grid-2-columns align-stretch _1-col-tablet">
-          <a id="w-node-_1a138b21-9f9e-af03-003f-43c092a71913-40dd4292" href="https://webflow.com/templates/html/gpt-x-technology-website-template" class="card buy-now w-inline-block">
+          <a id="w-node-_1a138b21-9f9e-af03-003f-43c092a71913-11d3bed8" href="https://webflow.com/templates/html/gpt-x-technology-website-template" class="card buy-now w-inline-block">
             <div class="card-home-pages-wrapper"><img src="images/gpt-x-webflow-bg-logo-ai--machine-learning-webflow-template.svg" alt="GPT X - Webflow Icon - AI &amp; Machine Learning Webflow Template" class="cta-square-logo">
               <h2 class="color-neutral-100 mg-bottom-12px">Buy now on Webflow</h2>
               <p class="color-neutral-100 opacity-90 mg-bottom-24px">Get the GPT X Webflow Template today, and take your website design to the next level.</p>
               <div class="btn-primary white buy-now-btn">Buy Template</div>
             </div><img src="images/gpt-x-gpt-template-banner-ai--machine-learning-webflow-template.png" alt="GPT X - GPT Template Banner - AI &amp; Machine Learning Webflow Template" sizes="(max-width: 991px) 100vw, 1140px" srcset="images/gpt-x-gpt-template-banner-ai--machine-learning-webflow-template-p-500.png 500w, images/gpt-x-gpt-template-banner-ai--machine-learning-webflow-template-p-800.png 800w, images/gpt-x-gpt-template-banner-ai--machine-learning-webflow-template-p-1080.png 1080w, images/gpt-x-gpt-template-banner-ai--machine-learning-webflow-template-p-1600.png 1600w, images/gpt-x-gpt-template-banner-ai--machine-learning-webflow-template-p-2000.png 2000w, images/gpt-x-gpt-template-banner-ai--machine-learning-webflow-template.png 2496w" class="cta-image-card">
           </a>
-          <a id="w-node-_0ea7b455-31b2-75ac-3c81-e240aea03e46-40dd4292" href="https://brixtemplates.com/more-webflow-templates" target="_blank" class="card buy-now white w-inline-block">
+          <a id="w-node-_0ea7b455-31b2-75ac-3c81-e240aea03e46-11d3bed8" href="https://brixtemplates.com/more-webflow-templates" target="_blank" class="card buy-now white w-inline-block">
             <div class="card-home-pages-wrapper"><img src="images/gpt-x-brix-bg-logo-ai--machine-learning-webflow-template.svg" alt="GPT X - Brix Templates Icon - AI &amp; Machine Learning Webflow Template" class="cta-square-logo white">
               <h2 class="mg-bottom-12px color-neutral-800">Browse all templates</h2>
               <p class="color-neutral-600 mg-bottom-24px">Looking for more templates? Browse our collection of 100+ Webflow Templates on BRIXTemplates.com</p>
@@ -848,10 +858,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <a href="blog-pages/blog-v1.html" class="menu-link">Blog V1</a>
                       </li>
                       <li class="menu-list-item">
-                        <a href="pawpal-ai-v1/blog-v2.html" class="menu-link">Blog V2</a>
+                        <a href="beta/blog-v2.html" class="menu-link">Blog V2</a>
                       </li>
                       <li class="menu-list-item">
-                        <a href="blog-pages/blog-v3.html" class="menu-link">Blog V3</a>
+                        <a href="beta/blog.html" class="menu-link">Blog V3</a>
                       </li>
                       <li class="menu-list-item">
                         <a href="https://gpttemplate.webflow.io/blog/label-your-images-and-train-your-model-using-machine-learning" class="menu-link">Blog post</a>
@@ -864,10 +874,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <div>
                     <ul role="list" class="menu-list-wrapper">
                       <li class="menu-list-item">
-                        <a href="features.html" class="menu-link">Features</a>
+                        <a href="features-template.html" class="menu-link">Features</a>
                       </li>
                       <li class="menu-list-item">
-                        <a href="pricing.html" class="menu-link">Pricing</a>
+                        <a href="beta/pricing.html" class="menu-link">Pricing</a>
                       </li>
                       <li class="menu-list-item">
                         <a href="https://gpttemplate.webflow.io/product/elite" class="menu-link">Pricing single</a>
@@ -879,7 +889,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <a href="pawpal-ai-v1/contact.html" class="menu-link">Contact V2</a>
                       </li>
                       <li class="menu-list-item">
-                        <a href="contact-pages/contact-v3.html" class="menu-link">Contact V3</a>
+                        <a href="beta/contact-us.html" class="menu-link">Contact V3</a>
                       </li>
                       <li class="menu-list-item">
                         <a href="integrations.html" class="menu-link">Integrations</a>
@@ -930,13 +940,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       <a href="pawpal-ai-v1/coming-soon.html" class="menu-link">Coming soon</a>
                     </li>
                     <li class="menu-list-item">
-                      <a href="utility-pages/forgot-password.html" class="menu-link">Forgot password</a>
+                      <a href="beta/forgot-password.html" class="menu-link">Forgot password</a>
                     </li>
                     <li class="menu-list-item">
                       <a href="confirm-your-email.html" class="menu-link">Email confirmation</a>
                     </li>
                     <li class="menu-list-item">
-                      <a href="utility-pages/terms-conditions.html" class="menu-link">Terms &amp; Conditions</a>
+                      <a href="beta/terms-conditions.html" class="menu-link">Terms &amp; Conditions</a>
                     </li>
                     <li class="menu-list-item last">
                       <a href="utility-pages/change-password.html" class="menu-link">Reset password</a>
@@ -982,7 +992,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <div class="text-300 bold mg-bottom-24px">Subscribe to our newsletter</div>
                   <div class="inner-container _518px _100-tablet">
                     <div class="mg-bottom-0 w-form">
-                      <form id="wf-form-Footer-V1-Subscribe" name="wf-form-Footer-V1-Subscribe" data-name="Footer V1 Subscribe" method="get" data-wf-page-id="65569e49721b43ee40dd4292" data-wf-element-id="ae4b99be-e025-ae18-ee76-abfbe8f9af05">
+                      <form id="wf-form-Footer-V1-Subscribe" name="wf-form-Footer-V1-Subscribe" data-name="Footer V1 Subscribe" method="get" data-wf-page-id="65f50a59894491fa11d3bed8" data-wf-element-id="ae4b99be-e025-ae18-ee76-abfbe8f9af05">
                         <div class="position-relative"><input class="input button-inside w-input" maxlength="256" name="Email" data-name="Email" placeholder="Enter your email address" type="email" id="Email-3" required=""><input type="submit" data-wait="Please wait..." class="btn-primary inside-input default w-button" value="Subscribe"></div>
                       </form>
                       <div class="success-message white-message small w-form-done">
@@ -1020,7 +1030,7 @@ function shareContent() {
   // The URL and text you want to share
   var shareData = {
     title: 'Welcome to PawPal!',
-    text: 'Check out PawPal, a unique app with a virtual dog for engaging conversation and support; I think you will enjoy it.',
+    text: "Give PawPal a try! It's an app with a virtual dog designed for engaging conversation and support. Sounds like something you'd like!",
     url: 'https://www.pawpal.ai/' // Replace with the URL you want to share
   };
   // Check if the Web Share API is supported
@@ -1050,6 +1060,166 @@ document.addEventListener('DOMContentLoaded', function() {
     shareButton.addEventListener('click', shareContent);
   }
 });
+const getColorSchemeBtn = document.getElementById("DARK-MODE");
+if (getColorSchemeBtn)
+  getColorSchemeBtn.addEventListener("click", colorScheme);
+      function colorScheme() {
+        function setTheme(theme) {
+          const style = document.createElement("style");
+          style.textContent = `
+html {
+background:red;
+}
+body {
+font-family: Arial, sans-serif;
+}
+.dark-mode {
+background-color: black;
+color: #fff;
+}
+.light-mode {
+background-color: #fff;
+}
+.blue-mode {
+  background-image: linear-gradient(#2663c0, #031025);
+color: #fff;
+}
+.blue-mode *[style*="background-color: rgb(255, 255, 255)"],
+.blue-mode *[style*="background-color: #ffffff"],
+.blue-mode *[style*="background-color: #fff"] {
+color: #000 !important;
+}
+.dark-mode *[style*="background-color: rgb(255, 255, 255)"],
+.dark-mode *[style*="background-color: #ffffff"],
+.dark-mode *[style*="background-color: #fff"] {
+color: black !important;
+}
+.light-mode *[style*="background-color: #010a97"] {
+color: #fff !important;
+}
+`;
+          document.head.appendChild(style);
+          document.body.className = theme;
+          localStorage.setItem("theme", theme);
+        }
+        const colorModeIcon = document.querySelector(".div-block-26.mob img");
+        const headerLogo = document.querySelector(
+          ".header-content-wrapper.left img"
+        );
+        function toggleMode() {
+          const currentTheme = localStorage.getItem("theme");
+          let newTheme;
+          const footerTextHtml = document.querySelectorAll(".text-block-14");
+          const rightsText = document.querySelector(".bold-text-9");
+          if (currentTheme === "dark-mode") {
+            newTheme = "light-mode";
+            footerTextHtml.forEach((div) => {
+              div.style.color = "#000";
+            });
+            rightsText.style.color = "#000";
+            colorModeIcon.src =
+              "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/65e7001608aed95b983e3d74_ICON%20DARK%20MODE-03.png";
+            headerLogo.src =
+              "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/65ef4ab5f0b06cf3d3821c57_PAWPAL%20HOME%20LOGO%20BLACK.png";
+          } else if (currentTheme === "light-mode") {
+            newTheme = "blue-mode";
+            footerTextHtml.forEach((div) => {
+              div.style.color = "#fff";
+            });
+            rightsText.style.color = "#fff";
+            headerLogo.src =
+              "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/652da206fefe0f232866b8eb_PAWPAL%20HOME%20LOGO%20V3%20UPDATED.png";
+            colorModeIcon.src =
+              "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/65e70016a8404f01cd1d7348_ICON%20DARK%20MODE-05.png";
+          } else {
+            newTheme = "dark-mode";
+            footerTextHtml.forEach((div) => {
+              div.style.color = "#fff";
+            });
+            rightsText.style.color = "#fff";
+            headerLogo.src =
+              "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/652da206fefe0f232866b8eb_PAWPAL%20HOME%20LOGO%20V3%20UPDATED.png";
+            colorModeIcon.src =
+              "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/65e79229c464e53e6390e6a9_DARK%20MODE%20ICONs-02.png";
+          }
+          setTheme(newTheme);
+        }
+        const savedTheme = localStorage.getItem("theme");
+        if (!savedTheme) {
+          setTheme("dark-mode");
+        } else {
+          setTheme(savedTheme);
+        }
+        toggleMode();
+      }
+// start region for sign in, sign out,profile icon
+     function clearCookies() {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    }
+       window.location.href = "/beta/intro-page";
+}
+  function getCookie(name) {
+        const cookieValue = document.cookie.match(
+          "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+        );
+        return cookieValue ? cookieValue.pop() : "";
+      }
+(function () {
+    const signInBtn = document.querySelector(
+      ".invite-friend.signin.w-button"
+    );
+    const signOut = document.querySelector(
+      ".invite-friend.signin.signout.w-button"
+    );
+    const profileIcon = document.querySelector(".button-11.w-button");
+    var firstUserId = getCookie("userId");
+    if (firstUserId) {
+      profileIcon.style.display = "block";
+      signOut.style.display = "block";
+      signInBtn.style.display = "none";
+    } else {
+      profileIcon.style.display = "none";
+      signOut.style.display = "none";
+      signInBtn.style.cssText = "display:block;";
+    }
+    signOut.addEventListener("click", () => {
+      clearCookies();
+    });
+  })();
+   window.onload=function(){
+     document.querySelector('.header-wrapper.moblie.chat').style.marginTop="0px"
+ const getClass=document.querySelector(".w-mod-js.w-mod-touch.wf-montserrat-n1-active.wf-montserrat-i1-active.wf-montserrat-n2-active.wf-montserrat-i2-active.wf-montserrat-n3-active.wf-montserrat-i3-active.wf-montserrat-n4-active.wf-montserrat-i4-active.wf-montserrat-n5-active.wf-montserrat-i5-active.wf-montserrat-n6-active.wf-montserrat-i6-active.wf-montserrat-n7-active.wf-montserrat-i7-active.wf-montserrat-n8-active.wf-montserrat-i8-active.wf-montserrat-n9-active.wf-montserrat-i9-active.wf-dmsans-n4-active.wf-dmsans-n5-active.wf-dmsans-n7-active.wf-active.w-mod-ix")
+      if(getClass)  getClass.style.cssText =
+          "background-image: linear-gradient(#2663c0, #031025) !important;";
+      }
+  // region end
+  // start region for randomizer button
+      var linksArray = [
+        "/demo-v-2-breeds/bernedoodle-demo-v-2",
+        "/demo-v-2-breeds/english-springer-spaniel-demo-v-2",
+        "/demo-v-2-breeds/dalmatian-demo-v-2",
+        "/demo-v-2-breeds/german-shepherd-demo-v-2",
+        "/demo-v-2-breeds/golden-retriever-demo-v-3",
+        "/demo-v-2-breeds/rottweiler-demo-v-2",
+      ];
+      // Function to pick a random link
+      function pickRandomLink() {
+        var randomIndex = Math.floor(Math.random() * linksArray.length);
+        var randomLink = linksArray[randomIndex];
+        window.location.href = randomLink; // Redirects to the random link
+      }
+     document.addEventListener("DOMContentLoaded", function () {
+        var randomButton = document.getElementById("randomButton"); // Make sure to assign the correct ID to your button
+        if (randomButton) {
+          randomButton.addEventListener("click", pickRandomLink);
+        }
+      });
+  // end region 
 </script>
 </body>
 </html>
