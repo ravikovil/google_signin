@@ -563,6 +563,9 @@ color: #fff !important;
       });
 
       function stopRecording() {
+        recognition.stop();
+        recording = false;
+
         const inputTextArea = document.querySelector(".userinput.w-input");
         if (inputTextArea.textContent) {
           displayChatBubble("user", inputTextArea.textContent);
@@ -572,9 +575,7 @@ color: #fff !important;
         }
 
         inputTextArea.textContent = "";
-        recognition.stop();
         recordBtn.classList.remove("recording");
-        recording = false;
       }
 
       function speechToText() {
