@@ -553,7 +553,6 @@ color: #fff !important;
         recording = false;
 
       recordBtn.addEventListener("click", () => {
-        console.log("listening");
         if (!recording) {
           speechToText();
           recording = true;
@@ -565,12 +564,10 @@ color: #fff !important;
       function stopRecording() {
         recognition.stop();
         recording = false;
-
         const inputTextArea = document.querySelector(".userinput.w-input");
         if (inputTextArea.textContent) {
           displayChatBubble("user", inputTextArea.textContent);
           postMessageToAPI(inputTextArea.textContent);
-          clearUserInput();
           scrollToLatestMessage();
         }
 
