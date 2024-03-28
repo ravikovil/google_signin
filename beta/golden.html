@@ -531,6 +531,20 @@ color: #fff !important;
       // end region
     </script>
     <script>
+      // check is mobile or not
+      function detectDevice() {
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        if (screenWidth < 768) {
+          return "Mobile";
+        } else if (screenWidth >= 768 && screenWidth < 1024) {
+          return "Tablet";
+        } else {
+          return "Desktop";
+        }
+      }
+
       // Speech recognition
       const recordBtn = document.querySelector(".button-12.w-button");
       let SpeechRecognition =
@@ -644,7 +658,15 @@ color: #fff !important;
 
       // create canvas for image
       function createCanvasImage(imageLink, timestamp, resultText) {
-        const chatContainer = document.querySelector(".chat-container");
+        const deviceType = detectDevice();
+        let chatContainer;
+        if (deviceType === "Mobile") {
+          chatContainer = document.querySelector(
+            ".w-layout-blockcontainer.chat-container.breed.w-container"
+          );
+        } else {
+          chatContainer = document.querySelector(".chat-container");
+        }
         const chatBubble = document.createElement("div");
         chatBubble.classList.add("chat-bubble1", "bot"); // Create canvas element
         const canvas = document.createElement("canvas");
@@ -909,8 +931,15 @@ color: #fff !important;
 
       // Function to scroll to the bottom of the chat container
       function scrollToLatestMessage(delay = 0) {
-        const chatContainer = document.querySelector(".chat-container");
-        // Delay scrolling slightly to account for the height change
+        const deviceType = detectDevice();
+        let chatContainer;
+        if (deviceType === "Mobile") {
+          chatContainer = document.querySelector(
+            ".w-layout-blockcontainer.chat-container.breed.w-container"
+          );
+        } else {
+          chatContainer = document.querySelector(".chat-container");
+        } // Delay scrolling slightly to account for the height change
         setTimeout(() => {
           chatContainer.scrollTop = chatContainer.scrollHeight;
           chatContainer.scrollIntoView({ block: "end" });
@@ -929,7 +958,15 @@ color: #fff !important;
       async function postMessageToAPI(message) {
         // For adding bubble when thinking bot by made ravi
         // started
-        const chatContainer = document.querySelector(".chat-container");
+        const deviceType = detectDevice();
+        let chatContainer;
+        if (deviceType === "Mobile") {
+          chatContainer = document.querySelector(
+            ".w-layout-blockcontainer.chat-container.breed.w-container"
+          );
+        } else {
+          chatContainer = document.querySelector(".chat-container");
+        }
         const bubble = document.createElement("div");
         bubble.classList.add("chat-bubble1");
         bubble.classList.add("bot");
@@ -1059,8 +1096,15 @@ color: #fff !important;
       // create html conversation
       async function conversationFromDb(callback) {
         getOldData(async (chatData) => {
-          const chatContainer = document.querySelector(".chat-container");
-          // Loop through the chat data
+          const deviceType = detectDevice();
+          let chatContainer;
+          if (deviceType === "Mobile") {
+            chatContainer = document.querySelector(
+              ".w-layout-blockcontainer.chat-container.breed.w-container"
+            );
+          } else {
+            chatContainer = document.querySelector(".chat-container");
+          } // Loop through the chat data
           chatData.forEach((chat, i) => {
             if (chat.from === firstUserId && chat.message) {
               const chatBubble = document.createElement("div");
@@ -1160,7 +1204,15 @@ color: #fff !important;
       // Function to display chat bubbles with live typing effect
 
       async function displayChatBubble(sender, message) {
-        const chatContainer = document.querySelector(".chat-container");
+        const deviceType = detectDevice();
+        let chatContainer;
+        if (deviceType === "Mobile") {
+          chatContainer = document.querySelector(
+            ".w-layout-blockcontainer.chat-container.breed.w-container"
+          );
+        } else {
+          chatContainer = document.querySelector(".chat-container");
+        }
         const bubble = document.createElement("div");
         bubble.classList.add("chat-bubble1");
         const { timestamp, timeString } = createTimestamp(); // Create a timestamp for all messages
@@ -1277,7 +1329,8 @@ color: #fff !important;
             const audio = document.createElement("audio");
             const playIcon = document.createElement("img");
             playIcon.style.cssText = `width:30px; height:30px;margin-bottom: 0;`;
-            playIcon.src = "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/6604f623c14ee6f1352ecd80_tts%20icons-04.png";
+            playIcon.src =
+              "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/6604f623c14ee6f1352ecd80_tts%20icons-04.png";
             playIcon.id = "play_speech" + i;
             audio.id = "speech" + i;
             element.appendChild(audio);
@@ -1465,7 +1518,15 @@ color: #fff !important;
 
         if (firstUserId) {
           // started
-          const chatContainer = document.querySelector(".chat-container");
+          const deviceType = detectDevice();
+          let chatContainer;
+          if (deviceType === "Mobile") {
+            chatContainer = document.querySelector(
+              ".w-layout-blockcontainer.chat-container.breed.w-container"
+            );
+          } else {
+            chatContainer = document.querySelector(".chat-container");
+          }
           const bubble = document.createElement("div");
           bubble.classList.add("chat-bubble1");
           bubble.classList.add("bot");
