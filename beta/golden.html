@@ -1141,10 +1141,10 @@ color: #fff !important;
                   chatBubble.classList.add("chat-bubble1", "bot");
 
                   // TTS logic start
-                  timestamp.style.cssText = `justify-content: end;gap: 10px;display: flex;align-items: end;`;
+                  timestamp.style.cssText = `position: relative;justify-content: end;gap: 10px;display: flex;align-items: end;`;
                   const audio = document.createElement("audio");
                   const playIcon = document.createElement("img");
-                  playIcon.style.cssText = `width:30px; height:30px;margin-bottom: 0;`;
+                  playIcon.style.cssText = `width:30px; height:30px;margin: unset;position: static;`;
                   playIcon.src =
                     "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/6604f623c14ee6f1352ecd80_tts%20icons-04.png";
                   playIcon.id = "play_speech" + i;
@@ -1332,7 +1332,7 @@ color: #fff !important;
             // tts logic start
             const audio = document.createElement("audio");
             const playIcon = document.createElement("img");
-            playIcon.style.cssText = `width:30px; height:30px;margin-bottom: 0;`;
+            playIcon.style.cssText = `width:30px; height:30px;margin: unset;position: static;`;
             playIcon.src =
               "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/6604f623c14ee6f1352ecd80_tts%20icons-04.png";
             playIcon.id = "play_speech" + i;
