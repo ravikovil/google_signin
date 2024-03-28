@@ -16,6 +16,7 @@ function populateLanguages() {
     option.innerHTML = lang.name;
     inputLanguage.appendChild(option);
   });
+  console.log(inputLanguage.value)
 }
 
 populateLanguages();
@@ -23,7 +24,7 @@ populateLanguages();
 function speechToText() {
   try {
     recognition = new SpeechRecognition();
-    recognition.lang = inputLanguage.value;
+    recognition.lang = "en";
     recognition.interimResults = true;
     recordBtn.classList.add("recording");
     recordBtn.querySelector("p").innerHTML = "Listening...";
