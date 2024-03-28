@@ -564,10 +564,13 @@ color: #fff !important;
 
       function stopRecording() {
         const inputTextArea = document.querySelector(".userinput.w-input");
-        displayChatBubble("user", inputTextArea.textContent);
-        postMessageToAPI(inputTextArea.textContent);
-        clearUserInput();
-        scrollToLatestMessage();
+        if (inputTextArea.textContent) {
+          displayChatBubble("user", inputTextArea.textContent);
+          postMessageToAPI(inputTextArea.textContent);
+          clearUserInput();
+          scrollToLatestMessage();
+        }
+
         inputTextArea.textContent = "";
         recognition.stop();
         recordBtn.classList.remove("recording");
