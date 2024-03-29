@@ -1,0 +1,69 @@
+        document.addEventListener("DOMContentLoaded", function () {});
+
+// attributes value
+const getCustomScansAttributeValue = (dataList, key) => {
+  for (const item of dataList) {
+    if (item.Name === key) {
+      return item.Value;
+    }
+  }
+  return null;
+};
+
+function callUserProfileApi(firstUserId) {
+  const requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+
+  fetch(
+    "https://api.pawpal.ai/api/v1/user/" + firstUserId,
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => {
+      // get section of user profile
+      const section_profile = document.querySelector(".section-26");
+      const containerProfile = document.querySelector(
+        ".w-layout-blockcontainer.container-22.w-container"
+      );
+      if (containerProfile) containerProfile.style.display = "flex";
+
+      const divLoader = section_profile.querySelector("h3");
+      divLoader.style.cssText = "display:none;";
+      section_profile.appendChild(divLoader);
+
+      const qrCode = getCustomScansAttributeValue(
+        JSON.parse(result).user.Attributes,
+        "custom:qrCode"
+      );
+      const scansCount = getCustomScansAttributeValue(
+        JSON.parse(result).user.Attributes,
+        "custom:scans"
+      );
+      const userNameElement = document.querySelector(".username");
+      userNameElement.textContent = JSON.parse(result).user.Username;
+      const scansCountElement =
+        document.querySelector(".div-block-29 h1");
+      scansCountElement.textContent = scansCount
+        ? "#" + scansCount
+        : "#0";
+      const qrCodeElement = document.querySelector(".user-code img");
+      qrCodeElement.style.cssText = "height:400px; width:100%;";
+      qrCodeElement.src = qrCode;
+    })
+    .catch((error) => console.log(error));
+}
+window.onload = function () {
+  // get section of user profile
+  const section_profile = document.querySelector(".section-26");
+  const containerProfile = document.querySelector(
+    ".w-layout-blockcontainer.container-22.w-container"
+  );
+  //loader please wait
+  if (containerProfile) containerProfile.style.display = "none";
+  const divLoader = document.createElement("h3");
+  divLoader.textContent = "Fetching details, please wait...";
+  divLoader.style.cssText = "display: flex;justify-content: center;";
+  section_profile.appendChild(divLoader);
+};

@@ -265,6 +265,39 @@ color: #fff !important;
     });
   })();
    window.onload=function(){
+            // check auth start region
+            var firstUserId = getCookie("userId");
+        function hideElementsExceptBody() {
+          return new Promise(function (resolve, reject) {
+            var elementsToHide = document.querySelectorAll("html *:not(body)");
+            elementsToHide.forEach(function (element) {
+              element.style.display = "none";
+            });
+            resolve();
+          });
+        }
+
+        if (
+          (window.location.href.includes("/user-profile") ||
+          window.location.href.includes("/golden") ||
+          window.location.href.includes("/pick-your-pal") ||
+          window.location.href.includes("/bernedoodle") ||
+          window.location.href.includes("/shepherd")) && !firstUserId
+        )  {
+          hideElementsExceptBody()
+            .then(function () {
+              setTimeout(() => {
+                if (confirm("Unauthorized, Login is required!")) {
+                  window.location.href = "/log-in";
+                }
+              }, 50);
+            })
+            .catch(function (error) {
+              console.error("Error hiding elements:", error);
+            });
+        }
+
+        // check auth end region
      document.querySelector('.header-wrapper.moblie.chat').style.marginTop="0px"
  const getClass=document.querySelector(".w-mod-js.w-mod-touch.wf-montserrat-n1-active.wf-montserrat-i1-active.wf-montserrat-n2-active.wf-montserrat-i2-active.wf-montserrat-n3-active.wf-montserrat-i3-active.wf-montserrat-n4-active.wf-montserrat-i4-active.wf-montserrat-n5-active.wf-montserrat-i5-active.wf-montserrat-n6-active.wf-montserrat-i6-active.wf-montserrat-n7-active.wf-montserrat-i7-active.wf-montserrat-n8-active.wf-montserrat-i8-active.wf-montserrat-n9-active.wf-montserrat-i9-active.wf-dmsans-n4-active.wf-dmsans-n5-active.wf-dmsans-n7-active.wf-active.w-mod-ix")
       if(getClass)  getClass.style.cssText =
