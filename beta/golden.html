@@ -554,7 +554,8 @@ color: #fff !important;
 
       recordBtn.addEventListener("click", () => {
         if (!recording) {
-          recordBtn.style.backgroundImage="../images/mic-red.png"
+          
+          recordBtn.style.backgroundImage="url('../images/mic-red.png')"
           speechToText();
           recording = true;
         } else {
@@ -571,7 +572,7 @@ color: #fff !important;
           postMessageToAPI(inputTextArea.textContent);
           scrollToLatestMessage();
         }
-        recordBtn.style.backgroundImage="../images/mic-black.png"
+        recordBtn.style.backgroundImage="url('../images/mic-black.png')"
         inputTextArea.textContent = "";
         recordBtn.classList.remove("recording");
       }
@@ -611,7 +612,7 @@ color: #fff !important;
           };
         } catch (error) {
           recording = false;
-          recordBtn.style.backgroundImage="../images/mic-black.png"
+          recordBtn.style.backgroundImage="('../images/mic-black.png')"
         }
       }
 
