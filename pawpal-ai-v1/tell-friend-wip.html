@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  Last Published: Thu Mar 28 2024 08:48:21 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  Last Published: Mon Apr 08 2024 11:48:06 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="65f50a59894491fa11d3bf0c" data-wf-site="651a1e741b97af0938ef7dd5" lang="en">
 <head>
   <meta charset="utf-8">
@@ -225,22 +225,26 @@ color: #fff !important;
       ".invite-friend.signin.signout.w-button"
     );
     const profileIcon = document.querySelector(".button-11.w-button");
+  const helpCenterSignInBtn=document.querySelector(".invite-friend.signin");
     var firstUserId = getCookie("userId");
-    if (firstUserId) {
-      profileIcon.style.display = "block";
-      signOut.style.display = "block";
-      signInBtn.style.display = "none";
-    } else {
-      profileIcon.style.display = "none";
-      signOut.style.display = "none";
-      signInBtn.style.cssText = "display:block;";
-    }
-    signOut.addEventListener("click", () => {
-      clearCookies();
-    });
+   if (firstUserId) {
+     if(helpCenterSignInBtn) helpCenterSignInBtn.style.display = "none";
+          if(profileIcon)profileIcon.style.display = "block";
+          if(signOut)signOut.style.display = "block";
+          if(signInBtn)signInBtn.style.display = "none";
+        } else {
+          if(helpCenterSignInBtn) helpCenterSignInBtn.style.display = "block";
+          if(profileIcon) profileIcon.style.display = "none";
+          if(signOut) signOut.style.display = "none";
+          if(signInBtn)signInBtn.style.cssText = "display:block;";
+        }
+       if(signOut) signOut.addEventListener("click", () => {
+          clearCookies();
+        });
   })();
    window.onload=function(){
-     document.querySelector('.header-wrapper.moblie.chat').style.marginTop="0px"
+     const mobHeadChat= document.querySelector('.header-wrapper.moblie.chat')
+     if(mobHeadChat) mobHeadChat.style.marginTop="0px"
  const getClass=document.querySelector(".w-mod-js.w-mod-touch.wf-montserrat-n1-active.wf-montserrat-i1-active.wf-montserrat-n2-active.wf-montserrat-i2-active.wf-montserrat-n3-active.wf-montserrat-i3-active.wf-montserrat-n4-active.wf-montserrat-i4-active.wf-montserrat-n5-active.wf-montserrat-i5-active.wf-montserrat-n6-active.wf-montserrat-i6-active.wf-montserrat-n7-active.wf-montserrat-i7-active.wf-montserrat-n8-active.wf-montserrat-i8-active.wf-montserrat-n9-active.wf-montserrat-i9-active.wf-dmsans-n4-active.wf-dmsans-n5-active.wf-dmsans-n7-active.wf-active.w-mod-ix")
       if(getClass)  getClass.style.cssText =
           "background-image: linear-gradient(#2663c0, #031025) !important;";
@@ -248,19 +252,23 @@ color: #fff !important;
   // region end
   // start region for randomizer button
       var linksArray = [
-        "/demo-v-2-breeds/bernedoodle-demo-v-2",
-        "/demo-v-2-breeds/english-springer-spaniel-demo-v-2",
-        "/demo-v-2-breeds/dalmatian-demo-v-2",
-        "/demo-v-2-breeds/german-shepherd-demo-v-2",
-        "/demo-v-2-breeds/golden-retriever-demo-v-3",
-        "/demo-v-2-breeds/rottweiler-demo-v-2",
+       "/beta/golden",
+        "/beta/shepherd",
+        "/beta/bernedoodle"
       ];
       // Function to pick a random link
-      function pickRandomLink() {
-        var randomIndex = Math.floor(Math.random() * linksArray.length);
-        var randomLink = linksArray[randomIndex];
-        window.location.href = randomLink; // Redirects to the random link
-      }
+     function getRandomLink() {
+    var currentURL = window.location.href;
+    var randomIndex = Math.floor(Math.random() * linksArray.length);
+    var randomLink = linksArray[randomIndex];
+    // Check if the randomLink is not present in the currentURL
+    if (!currentURL.includes(randomLink)) {
+        return randomLink;
+    } else {
+        // The random link is already in the current URL, call again
+        getRandomLink();
+    }
+}
      document.addEventListener("DOMContentLoaded", function () {
         var randomButton = document.getElementById("randomButton"); // Make sure to assign the correct ID to your button
         if (randomButton) {
@@ -268,6 +276,34 @@ color: #fff !important;
         }
       });
   // end region 
+          // check auth start region
+        var firstUserId = getCookie("userId");
+        function hideElementsExceptBody() {
+          return new Promise(function (resolve, reject) {
+            var elementsToHide = document.querySelectorAll("html *:not(body)");
+            elementsToHide.forEach(function (element) {
+              element.style.display = "none";
+            });
+            resolve();
+          });
+        }
+        if (
+          (window.location.href.includes("/user-profile") ||
+          window.location.href.includes("/golden") ||
+          window.location.href.includes("/pick-your-pal") ||
+          window.location.href.includes("/bernedoodle") ||
+          window.location.href.includes("/shepherd")) && !firstUserId
+        )  {
+                       window.location.href="/beta/unauthorized";
+          hideElementsExceptBody()
+            .then(function () {
+             window.location.href="/beta/unauthorized";
+            })
+            .catch(function (error) {
+              console.error("Error hiding elements:", error);
+            });
+        }
+        // check auth end region
 </script>
 </body>
 </html>

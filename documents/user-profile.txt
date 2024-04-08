@@ -1,0 +1,134 @@
+      document.addEventListener("DOMContentLoaded", function () {});
+
+      // get all user images
+
+      async function userImages(firstUserId) {
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const raw = JSON.stringify({
+          userId: firstUserId,
+        });
+
+        const requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+
+        return await fetch(
+          "https://api.pawpal.ai/api/v1/chat/images",
+          requestOptions
+        )
+          .then((response) => response.text())
+          .then((result) => {
+            return JSON.parse(result).images;
+          })
+          .catch((error) => console.error(error));
+      }
+
+      // attributes value
+      const getCustomScansAttributeValue = (dataList, key) => {
+        for (const item of dataList) {
+          if (item.Name === key) {
+            return item.Value;
+          }
+        }
+        return null;
+      };
+
+      function callUserProfileApi(firstUserId) {
+        const requestOptions = {
+          method: "GET",
+          redirect: "follow",
+        };
+
+        fetch(
+          "https://api.pawpal.ai/api/v1/user/" + firstUserId,
+          requestOptions
+        )
+          .then((response) => response.text())
+          .then((result) => {
+            // get section of user profile
+            const section_profile = document.querySelector(".section-26");
+            const containerProfile = document.querySelector(
+              ".w-layout-blockcontainer.container-22.w-container"
+            );
+            if (containerProfile) containerProfile.style.display = "flex";
+
+            const qrCode = getCustomScansAttributeValue(
+              JSON.parse(result).user.Attributes,
+              "custom:qrCode"
+            );
+            const scansCount = getCustomScansAttributeValue(
+              JSON.parse(result).user.Attributes,
+              "custom:scans"
+            );
+
+            const signupCount = getCustomScansAttributeValue(
+              JSON.parse(result).user.Attributes,
+              "custom:signup_by_qr"
+            );
+            const userNameElement = document.querySelector(".username");
+            userNameElement.textContent = JSON.parse(result).user.Username;
+            const scansCountElement = document.querySelector(".heading-64");
+            const scansCountElement2 = document.querySelector(".heading-62");
+
+            scansCountElement.textContent = scansCount
+              ? "#" + scansCount
+              : "#0";
+            scansCountElement2.textContent = scansCount
+              ? "#" + scansCount
+              : "#0";
+            const qrCodeElement = document.querySelector(".user-code img");
+            qrCodeElement.style.cssText = "height:250px; width:250px;";
+            if (qrCode) qrCodeElement.src = qrCode;
+            const getSignUpHtmlElement = document.getElementById(
+              "w-node-_68cf37cc-6a47-bc93-8574-92c90ed076b1-ebf38a16"
+            );
+            if (getSignUpHtmlElement) {
+              const createH1 = document.createElement("h2");
+              createH1.textContent = signupCount ? "#" + scansCount : "#0";
+              getSignUpHtmlElement.appendChild(createH1);
+            }
+          })
+          .catch((error) => console.log(error));
+      }
+
+      // logout logic
+
+      const logoutBtn = document.querySelector('.w-layout-cell.cell-34 a');
+      logoutBtn.addEventListener('click',clearCookies)
+
+      window.onload = async function () {
+        var firstUserId = getCookie("userId");
+        // get all images
+
+        if (firstUserId) {
+          const userImagesData = await userImages(firstUserId);
+
+          const getAllPicsHtmlElement =
+            document.querySelectorAll(".user-pics img");
+          if (userImagesData?.length > 0) {
+            userImagesData.map((url, i) => {
+              console.log("getAllPicsHtmlElement[i]", getAllPicsHtmlElement[i]);
+              getAllPicsHtmlElement[i].style.cssText = "height:150px;";
+              getAllPicsHtmlElement[i].id = i;
+              getAllPicsHtmlElement[i].src = url;
+            });
+          }
+        }
+        callUserProfileApi(firstUserId);
+        // get section of user profile
+        const section_profile = document.querySelector(".section-26");
+        const containerProfile = document.querySelector(
+          ".w-layout-blockcontainer.container-22.w-container"
+        );
+        //loader please wait
+        if (containerProfile) containerProfile.style.display = "none";
+        const divLoader = document.createElement("h3");
+        divLoader.textContent = "Fetching details, please wait...";
+        divLoader.style.cssText = "display: flex;justify-content: center;";
+        // section_profile.appendChild(divLoader);
+      };
