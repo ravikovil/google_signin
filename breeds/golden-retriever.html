@@ -672,7 +672,6 @@ color: #fff !important;
           recognition.start();
           recognition.onresult = (event) => {
             const speechResult = event.results[0][0].transcript;
-            alert("html"+inputTextArea+" result "+speechResult)
             // const inputTextArea = document.querySelector(".userinput.w-input");
             inputTextArea[0].value = speechResult;
             const getMaxCharSpan = document.querySelector(".max_char");
@@ -1472,7 +1471,7 @@ color: #fff !important;
 
       // Function to clear the user input field
       function clearUserInput() {
-        document.querySelector(".userinput").value = "";
+        document.getElementsByTagName("textarea")[0].value = "";
       }
 
       var isSendMsg = false;
@@ -1493,6 +1492,7 @@ color: #fff !important;
             if (userMessage.length >= 2) {
               const getMaxCharSpan = document.querySelector(".max_char");
               getMaxCharSpan.style.display = "none";
+              clearUserInput();
               // Check if the message has at least 2 characters
               displayChatBubble("user", userMessage);
               postMessageToAPI(userMessage);
