@@ -672,6 +672,7 @@ color: #fff !important;
           recognition.start();
           recognition.onresult = (event) => {
             const speechResult = event.results[0][0].transcript;
+            alert(speechResult+"speechResult")
             const inputTextArea = document.querySelector(".userinput.w-input");
             inputTextArea.textContent = speechResult;
             const getMaxCharSpan = document.querySelector(".max_char");
