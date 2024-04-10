@@ -1540,26 +1540,6 @@ color: #fff !important;
           });
         }
 
-        if (
-          (window.location.href.includes("/user-profile") ||
-            window.location.href.includes("/golden") ||
-            window.location.href.includes("/pick-your-pal") ||
-            window.location.href.includes("/bernedoodle") ||
-            window.location.href.includes("/shepherd")) &&
-          !firstUserId
-        ) {
-          hideElementsExceptBody()
-            .then(function () {
-              setTimeout(() => {
-                if (confirm("Unauthorized, Login is required!")) {
-                  window.location.href = "/log-in";
-                }
-              }, 50);
-            })
-            .catch(function (error) {
-              console.error("Error hiding elements:", error);
-            });
-        }
 
         // check auth end region
 
