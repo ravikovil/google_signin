@@ -896,13 +896,11 @@ color: #fff !important;
                   button.value = "Submit";
                   removeRedText();
                   appendRedText(JSON.parse(result).message);
-                  alert(JSON.parse(result).message);
                   button.disabled = false;
                 }
                 if (JSON.parse(result).success === true) {
                   button.value = "Submit";
                   removeRedText();
-                  alert("User registered successfully");
                   button.disabled = false;
                   window.location.href =
                     "/beta/verify-your-email?username=" +
@@ -1017,7 +1015,6 @@ color: #fff !important;
           const params = new URLSearchParams(url.search);
           const userId = params.get("userId");
           const isQrCode = params.get("isQrCode");
-          alert(userId + "      " + isQrCode);
           if (isQrCode === "True") {
             const myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");

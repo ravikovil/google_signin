@@ -507,7 +507,7 @@ color: #fff !important;
               "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/652da206fefe0f232866b8eb_PAWPAL%20HOME%20LOGO%20V3%20UPDATED.png";
             colorModeIcon.src =
               "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/65e70016a8404f01cd1d7348_ICON%20DARK%20MODE-05.png";
-          } else {
+          } else if(currentTheme === "blue-mode"){
             newTheme = "dark-mode";
             footerTextHtml.forEach((div) => {
               div.style.color = "#fff";
@@ -517,12 +517,22 @@ color: #fff !important;
               "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/652da206fefe0f232866b8eb_PAWPAL%20HOME%20LOGO%20V3%20UPDATED.png";
             colorModeIcon.src =
               "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/65e79229c464e53e6390e6a9_DARK%20MODE%20ICONs-02.png";
+          }else{
+            newTheme = "blue-mode";
+            footerTextHtml.forEach((div) => {
+              div.style.color = "#fff";
+            });
+            rightsText.style.color = "#fff";
+            headerLogo.src =
+              "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/652da206fefe0f232866b8eb_PAWPAL%20HOME%20LOGO%20V3%20UPDATED.png";
+            colorModeIcon.src =
+              "https://uploads-ssl.webflow.com/651a1e741b97af0938ef7dd5/65e70016a8404f01cd1d7348_ICON%20DARK%20MODE-05.png";
           }
           setTheme(newTheme);
         }
         const savedTheme = localStorage.getItem("theme");
         if (!savedTheme) {
-          setTheme("dark-mode");
+          setTheme("blue-mode");
         } else {
           setTheme(savedTheme);
         }

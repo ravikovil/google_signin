@@ -1,0 +1,180 @@
+function shareContent() {
+  // The URL and text you want to share
+  var shareData = {
+    title: "Welcome to PawPal!",
+    text: "Check out PawPal, a unique app with a virtual dog for engaging conversation and support; I think you will enjoy it.",
+    url: "https://www.pawpal.ai/", // Replace with the URL you want to share
+  };
+  // Check if the Web Share API is supported
+  if (navigator.share) {
+    // Use the Web Share API
+    navigator
+      .share(shareData)
+      .then(() => console.log("Successful share"))
+      .catch((error) => console.log("Error sharing:", error));
+  } else {
+    // Fallback to SMS if Web Share API is not supported
+    shareViaSMS(shareData.url);
+  }
+}
+function shareViaSMS(url) {
+  // Encode the URL to ensure it's safe to include in the SMS body
+  var encodedURL = encodeURIComponent(url);
+  // Create the SMS link
+  var smsLink = "sms:?&body=" + shareData.text + encodedURL;
+  // Redirect to the SMS link
+  window.location.href = smsLink;
+}
+// Wait for the DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  function appendRedText(msg) {
+    // Get the form element
+    const form = document.querySelector("form");
+    // Create a span element
+    const span = document.createElement("span");
+    span.style.color = "red"; // Set text color to red
+    span.id = "errorSpan"; // Set an id for the span
+    span.textContent = msg;
+    // Get the second-to-last element in the form
+    const secondToLastElement = form.children[form.children.length - 4];
+    // Append the span element after the second-to-last element
+    form.insertBefore(span, secondToLastElement.nextSibling);
+  }
+  function removeRedText() {
+    // Get the span element by its id
+    const spanToRemove = document.getElementById("errorSpan");
+    // Remove the span element if it exists
+    if (spanToRemove) {
+      spanToRemove.parentNode.removeChild(spanToRemove);
+    }
+  }
+  function setCookie(name, value, expiresInSeconds) {
+    const date = new Date();
+    const expirationDate = new Date(Date.now() + expiresInSeconds * 1000);
+    const expires = "expires=" + expirationDate.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+  // Sign in
+  document
+    .querySelector(".w-users-userformbutton")
+    .addEventListener("click", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("wf-log-in-email").value;
+      const password =
+        document.getElementById("wf-log-in-password").value;
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      const raw = JSON.stringify({
+        username: email,
+        password: password,
+      });
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+      fetch("https://api.pawpal.ai/api/v1/user/login", requestOptions)
+        .then((response) => response.text())
+        .then((result) => {
+          console.log(result);
+          if (JSON.parse(result).success === false) {
+            appendRedText(JSON.parse(result).message);
+          } else {
+            removeRedText();
+            setCookie(
+              "access_token",
+              JSON.parse(result).message?.AuthenticationResult
+                .AccessToken,
+              JSON.parse(result).message?.AuthenticationResult.ExpiresIn
+            );
+            setCookie(
+              "userId",
+              JSON.parse(result).userId,
+              JSON.parse(result).message?.AuthenticationResult.ExpiresIn
+            );
+            setCookie(
+              "id_token",
+              JSON.parse(result).message?.AuthenticationResult.IdToken,
+              JSON.parse(result).message?.AuthenticationResult.ExpiresIn
+            );
+            setCookie(
+              "refresh_token",
+              JSON.parse(result).message?.AuthenticationResult
+                .RefreshToken,
+              JSON.parse(result).message?.AuthenticationResult.ExpiresIn
+            );
+            alert("Logged In successfully");
+            window.location.href="/beta/welcome-back"
+          }
+        })
+        .catch((error) => console.log(error));
+    });
+  // Attach the shareContent function to the button's click event
+  var shareButton = document.getElementById("shareinvite");
+  if (shareButton) {
+    shareButton.addEventListener("click", shareContent);
+  }
+  // sign up api
+  async function signUpFromGoogle(token) {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    const raw = JSON.stringify({ token: token });
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+    await fetch(
+      "https://api.pawpal.ai/api/v1/user/google",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        setCookie("userId", JSON.parse(result).userId, 1);
+        window.location.href="/beta/welcome-back"
+      })
+      .catch((error) => {
+        window.location.href="/beta/welcome-back"
+      });
+  }
+  // set cookies
+  function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+  window.onload = function () {
+    gapi.load("auth2", function () {
+      var auth2 = gapi.auth2.init({
+        client_id: '203059382548-3kpu65hiculthir7rmfi9hr9nc3i5rn4.apps.googleusercontent.com',
+        scope: "email",
+        plugin_name: "pawpal",
+      });
+      document
+        .getElementById("google-signin-button")
+        .addEventListener("click", function () {
+          auth2
+            .signIn()
+            .then(async function (googleUser) {
+              var profile = googleUser.getBasicProfile();
+              var idToken = googleUser.getAuthResponse().id_token;
+              setCookie("access_token", idToken, 1);
+              await signUpFromGoogle(idToken);
+            })
+            .catch(function (error) {
+              if (error.error === "popup_closed_by_user") {
+                console.log("Sign-in popup was closed by the user.");
+              } else {
+                console.error(error);
+              }
+            });
+        });
+    });
+  };
+});
