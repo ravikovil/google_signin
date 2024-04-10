@@ -666,15 +666,15 @@ color: #fff !important;
           recognition = new SpeechRecognition();
           recognition.lang = "en";
           recognition.interimResults = true;
-          recordBtn.classList.add("recording");
-          const inputTextArea = document.querySelector(".userinput.w-input");
+          // recordBtn.classList.add("recording");
+          const inputTextArea = document.getElementsByTagName("textarea");
           // recordBtn.querySelector("p").innerHTML = "Listening...";
           recognition.start();
           recognition.onresult = (event) => {
             const speechResult = event.results[0][0].transcript;
-            alert(speechResult+"speechResult")
-            const inputTextArea = document.querySelector(".userinput.w-input");
-            inputTextArea.textContent = speechResult;
+            alert("html"+inputTextArea+" result "+speechResult)
+            // const inputTextArea = document.querySelector(".userinput.w-input");
+            inputTextArea[0].value = speechResult;
             const getMaxCharSpan = document.querySelector(".max_char");
             getMaxCharSpan.style.display = "flex";
           };
@@ -684,17 +684,17 @@ color: #fff !important;
           recognition.onerror = (event) => {
             stopRecording();
             if (event.error === "no-speech") {
-              alert("No speech was detected. Stopping...");
+              // alert("No speech was detected. Stopping...");
             } else if (event.error === "audio-capture") {
-              alert(
-                "No microphone was found. Ensure that a microphone is installed."
-              );
+              // alert(
+              //   "No microphone was found. Ensure that a microphone is installed."
+              // );
             } else if (event.error === "not-allowed") {
-              alert("Permission to use microphone is blocked.");
+              // alert("Permission to use microphone is blocked.");
             } else if (event.error === "aborted") {
-              alert("Listening Stopped.");
+              // alert("Listening Stopped.");
             } else {
-              alert("Error occurred in recognition: " + event.error);
+              // alert("Error occurred in recognition: " + event.error);
             }
           };
         } catch (error) {
